@@ -11,6 +11,7 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Nutrition = require("./models/nutritions");
 
 // import authentication library
 const auth = require("./auth");
@@ -42,6 +43,22 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+
+router.get("/nutrition", (req, res) => {
+  // empty selector means get all documents
+  Nutrition.find({ creator_id: req.query.id }).then((nutritions) => res.send(nutritions));
+});
+
+router.post("/nutrition", auth.ensureLoggedIn, (req, res) => {
+  const newNutrition = new Nutrition({
+    creator_id: req.body.id,
+    content: req.body.content,
+    date: 2,
+    calories: 1,
+  });
+
+  newNutrition.save().then((nutrition) => res.send(nutrition));
+});
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

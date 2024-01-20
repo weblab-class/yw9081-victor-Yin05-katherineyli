@@ -9,11 +9,14 @@ const Nutrition = ({ userId }) => {
 
   useEffect(() => {
     document.title = "Nutrition Log";
-    /*get("/api/nutrition").then((nutritionObj) => {
-      let reversedNutritionObj = nutritionObj.reverse();
-      setNutritions(reversedNutritionObj);
-    });*/
-  }, []);
+    const query = { id: userId };
+    if (userId) {
+      get("/api/nutrition", query).then((nutritionObj) => {
+        let reversedNutritionObj = nutritionObj.reverse();
+        setNutritions(reversedNutritionObj);
+      });
+    }
+  }, [userId]);
 
   const addNewNutrition = (nutritionObj) => {
     setNutritions([nutritionObj].concat(nutritions));
@@ -25,7 +28,7 @@ const Nutrition = ({ userId }) => {
     nutritionsList = nutritions.map((nutritionsObj) => (
       <SingleNutrition
         content={nutritionsObj.content}
-        date={1}
+        date={nutritionsObj.date}
         calories={nutritionsObj.calories}
         creator_id={nutritionsObj.creator_id}
       ></SingleNutrition>
@@ -33,9 +36,13 @@ const Nutrition = ({ userId }) => {
   } else {
     nutritionsList = <div>No nutrition logs!</div>;
   }
+  if (!userId) {
+    return <div>Log in before using Beast Mode</div>;
+  }
   return (
     <>
-      {userId && <NewNutrition addNewNutrition={addNewNutrition} />}
+      <p>{userId}</p>
+      {userId && <NewNutrition addNewNutrition={addNewNutrition} userId={userId} />}
       {nutritionsList}
     </>
   );

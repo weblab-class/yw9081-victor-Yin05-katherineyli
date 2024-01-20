@@ -52,7 +52,7 @@ const NewPostInput = (props) => {
  */
 const NewNutrition = (props) => {
   const addNutrition = (value) => {
-    const body = { content: value };
+    const body = { content: value, id: props.userId };
     post("/api/nutrition", body).then((nutrition) => {
       props.addNewNutrition(nutrition);
     });
