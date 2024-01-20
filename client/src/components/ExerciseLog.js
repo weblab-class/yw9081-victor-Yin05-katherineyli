@@ -1,12 +1,15 @@
 import React from "react";
 import ExerciseItem from "./ExerciseItem";
 
-const ExerciseLog = () => {
+//props: exercises, setExercises
+
+const ExerciseLog = (props) => {
   return (
     <div>
-      <ExerciseItem />
-      <ExerciseItem />
-      <ExerciseItem />
+      <h1 className="bg-gray-100 font-semibold text-3xl py-2 px-4">Exercise Log</h1>
+      {props.exercises.map((exercise) => (
+        <ExerciseItem type={exercise.type} duration={exercise.duration} date={exercise.date} />
+      ))}
     </div>
   );
 };

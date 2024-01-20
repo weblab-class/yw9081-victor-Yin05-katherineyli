@@ -4,6 +4,7 @@ import ExerciseLog from "../ExerciseLog";
 
 const Exercises = () => {
   const [showNewExercise, setShowNewExercise] = useState(false);
+  const [exercises, setExercises] = useState([]);
 
   const toggleNewExercise = () => {
     setShowNewExercise(true);
@@ -15,8 +16,8 @@ const Exercises = () => {
         Add Exercise
       </button>
       {/* <div>{showNewExercise && <NewExercise />}</div> */}
-      <NewExercise />
-      <ExerciseLog />
+      <NewExercise exercises={exercises} setExercises={setExercises}/>
+      <ExerciseLog exercises={exercises} setExercises={setExercises}/>
     </div>
   );
 };
