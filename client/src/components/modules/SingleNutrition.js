@@ -13,10 +13,9 @@ import { get } from "../../utilities";
 const SingleNutrition = (props) => {
   return (
     <div>
-      <p>{props.creator_id}</p>
-      <p>{props.date}</p>
-      <p>{props.content}</p>
-      <p>{props.calories}</p>
+      <p>The date is {props.date}</p>
+      <p>The food is {props.content}</p>
+      <p>Calories is {props.calories}</p>
     </div>
   );
 };

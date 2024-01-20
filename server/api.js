@@ -53,8 +53,8 @@ router.post("/nutrition", auth.ensureLoggedIn, (req, res) => {
   const newNutrition = new Nutrition({
     creator_id: req.body.id,
     content: req.body.content,
-    date: 2,
-    calories: 1,
+    date: Math.random() * 100,
+    calories: req.body.calories,
   });
 
   newNutrition.save().then((nutrition) => res.send(nutrition));

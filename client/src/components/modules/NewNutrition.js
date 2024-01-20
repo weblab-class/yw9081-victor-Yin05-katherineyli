@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { post } from "../../utilities";
+import { get, post } from "../../utilities";
 
 /**
  * New Post is a parent component for all input components
@@ -52,9 +52,23 @@ const NewPostInput = (props) => {
  */
 const NewNutrition = (props) => {
   const addNutrition = (value) => {
-    const body = { content: value, id: props.userId };
-    post("/api/nutrition", body).then((nutrition) => {
-      props.addNewNutrition(nutrition);
+    async function getData(url = "", data = {}) {
+      // Default options are marked with *
+      const response = await fetch(url, {
+        method: "GET", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+          "X-Api-Key": "7i5R5M6eeuaCYKLfuj84BA==8jRHoGmlbImK925Z",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+      return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    getData("https://api.calorieninjas.com/v1/nutrition?query=chicken").then((data) => {
+      const body = { content: value, id: props.userId, calories: data.items[0].calories };
+      post("/api/nutrition", body).then((nutrition) => {
+        props.addNewNutrition(nutrition);
+      });
     });
   };
 

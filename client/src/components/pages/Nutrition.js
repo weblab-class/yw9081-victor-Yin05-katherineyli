@@ -41,7 +41,6 @@ const Nutrition = ({ userId }) => {
   }
   return (
     <>
-      <p>{userId}</p>
       {userId && <NewNutrition addNewNutrition={addNewNutrition} userId={userId} />}
       {nutritionsList}
     </>
