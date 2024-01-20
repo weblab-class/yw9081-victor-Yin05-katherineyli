@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NewExercise from "../NewExercise";
 import ExerciseLog from "../ExerciseLog";
+import { get } from "../../utilities";
 
 const Exercises = () => {
   const [showNewExercise, setShowNewExercise] = useState(false);
   const [exercises, setExercises] = useState([]);
+
+  useEffect(() => {
+    get("/api/exercises").then((exercises) => {
+      setExercises(exercises);
+    });
+  }, []);
 
   const toggleNewExercise = () => {
     setShowNewExercise(true);
@@ -16,8 +23,8 @@ const Exercises = () => {
         Add Exercise
       </button>
       {/* <div>{showNewExercise && <NewExercise />}</div> */}
-      <NewExercise exercises={exercises} setExercises={setExercises}/>
-      <ExerciseLog exercises={exercises} setExercises={setExercises}/>
+      <NewExercise exercises={exercises} setExercises={setExercises} />
+      <ExerciseLog exercises={exercises} setExercises={setExercises} />
     </div>
   );
 };

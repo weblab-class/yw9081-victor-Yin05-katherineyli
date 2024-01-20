@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { post } from "../utilities";
 
 //props: exercises, setExercises
 
@@ -23,12 +24,14 @@ const NewExercise = (props) => {
   };
 
   const addExercise = () => {
-    const newExercise = {
+    const body = {
       type: inputExercise,
       duration: inputDuration,
-      date: inputDate,
+      date: Date(inputDate),
     };
-    props.setExercises(props.exercises.concat(newExercise));
+    post("/api/exercise", body).then((exercise) => {
+      props.setExercises(props.exercises.concat(exercise));
+    });
   };
 
   return (
