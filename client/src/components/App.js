@@ -7,6 +7,8 @@ import { Router } from "react-router-dom";
 import Log from "./pages/Log.js";
 import Nutrition from "./pages/Nutrition.js";
 import NotFound from "./pages/NotFound.js";
+import Skeleton from "./pages/Skeleton.js";
+import Exercises from "../components/pages/Exercises";
 
 import jwt_decode from "jwt-decode";
 import "../utilities.css";
@@ -19,9 +21,21 @@ import { get, post } from "../utilities";
 const App = () => {
 
   return (
-    <>
-      <NavBar />
-    </>
+    // <Routes>
+    //   <Route
+    //     path="/"
+    //     element={
+    //       <Skeleton
+    //         path="/"
+    //         handleLogin={handleLogin}
+    //         handleLogout={handleLogout}
+    //         userId={userId}
+    //       />
+    //     }
+    //   />
+    //   <Route path="*" element={<NotFound />} />
+    // </Routes>
+    <Exercises />
   );
 };
 
