@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { get, post } from "../../utilities";
 // import GoogleLogin, { GoogleLogout } from "react-google-login";
 import { GoogleOAuthProvider, GoogleLogin, googleLogout } from "@react-oauth/google";
+import Exercises from "../pages/Exercises";
 
 import "./NavBar.css";
 import Login from "./Login.js";
@@ -14,8 +15,7 @@ const GOOGLE_CLIENT_ID = "670940664828-uil6in2dfnfse28fvsuc1tp93g5gv63e.apps.goo
  * The navigation bar at the top of all pages. Takes no props.
  */
 const NavBar = (props) => {
-
-    const [userId, setUserId] = useState(undefined);
+  const [userId, setUserId] = useState(undefined);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -41,7 +41,7 @@ const NavBar = (props) => {
     post("/api/logout");
   };
 
-    return (
+  return (
     <nav className="NavBar-container">
       <div className="NavBar-linkContainer">
         <div>
@@ -55,12 +55,12 @@ const NavBar = (props) => {
           </Link>
         )} */}
         <div>
-          <Link to="/log/" className="NavBar-link">
-            Log
+          <Link to="/exercises" className="NavBar-link">
+            Exercises
           </Link>
         </div>
         <div>
-          <Link to="/nutrition/" className="NavBar-link">
+          <Link to="/nutrition" className="NavBar-link">
             Nutri
           </Link>
         </div>
