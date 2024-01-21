@@ -18,10 +18,10 @@ const Exercises = () => {
   };
 
   return (
-    <div className="flex-col">
-      <button onClick={toggleNewExercise} className="hover:bg-gray-200">
+    <div className="flex">
+      {/* <button onClick={toggleNewExercise} className="hover:bg-gray-200">
         Add Exercise
-      </button>
+      </button> */}
       {/* <div>{showNewExercise && <NewExercise />}</div> */}
       <NewExercise exercises={exercises} setExercises={setExercises} />
       <ExerciseLog exercises={exercises} setExercises={setExercises} />
