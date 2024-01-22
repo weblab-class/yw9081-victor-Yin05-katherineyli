@@ -12,6 +12,7 @@ const express = require("express");
 // import models so we can interact with the database
 const User = require("./models/user");
 const Exercise = require("./models/exercise");
+const Nutrition = require("./models/nutritions");
 
 // import authentication library
 const auth = require("./auth");
@@ -55,6 +56,23 @@ router.post("/exercise", (req, res) => {
 
 router.get("/exercises", (req, res) => {
   Exercise.find({}).then((exercises) => res.send(exercises));
+});
+
+router.get("/nutrition", (req, res) => {
+  // empty selector means get all documents
+  Nutrition.find({ creator_id: req.query.id }).then((nutritions) => res.send(nutritions));
+});
+
+router.post("/nutrition", auth.ensureLoggedIn, (req, res) => {
+  const newNutrition = new Nutrition({
+    creator_id: req.body.id,
+    content: req.body.content,
+    date: req.body.date,
+    calories: req.body.calories,
+  });
+  console.log(req.body.date);
+
+  newNutrition.save().then((nutrition) => res.send(nutrition));
 });
 
 // anything else falls to this "not found" case
