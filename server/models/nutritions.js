@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const NutritionSchema = new mongoose.Schema({
   creator_id: String,
   content: String,
-  date: Number,
-  calories: Number,
+  date: String,
+  calories: Array,
 });
 
 // compile model from schema

@@ -40,10 +40,10 @@ const Nutrition = ({ userId }) => {
     return <div>Log in before using Beast Mode</div>;
   }
   return (
-    <>
+    <div>
       {userId && <NewNutrition addNewNutrition={addNewNutrition} userId={userId} />}
       {nutritionsList}
-    </>
+    </div>
   );
 };
 
