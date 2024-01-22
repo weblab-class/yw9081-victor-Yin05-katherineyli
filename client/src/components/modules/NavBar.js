@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import { get, post } from "../../utilities";
+import io from "socket.io-client";
 // import GoogleLogin, { GoogleLogout } from "react-google-login";
 import { GoogleOAuthProvider, GoogleLogin, googleLogout } from "@react-oauth/google";
 import Exercises from "../pages/Exercises";
@@ -15,6 +17,7 @@ const GOOGLE_CLIENT_ID = "670940664828-uil6in2dfnfse28fvsuc1tp93g5gv63e.apps.goo
  * The navigation bar at the top of all pages. Takes no props.
  */
 const NavBar = (props) => {
+  const socket = io();
   const [userId, setUserId] = useState(undefined);
 
   useEffect(() => {

@@ -5,7 +5,6 @@ import NavBar from "./modules/NavBar.js";
 import Login from "./modules/Login.js";
 import { Router } from "react-router-dom";
 import Log from "./pages/Log.js";
-import Nutrition from "./pages/Nutrition.js";
 import NotFound from "./pages/NotFound.js";
 import Nutrition from "./pages/Nutrition.js";
 import Skeleton from "./pages/Skeleton.js";

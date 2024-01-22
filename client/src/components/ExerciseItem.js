@@ -13,9 +13,9 @@ const ExerciseItem = (props) => {
     "07": "Jul",
     "08": "Aug",
     "09": "Sep",
-    "10": "Oct",
-    "11": "Nov",
-    "12": "Dec",
+    10: "Oct",
+    11: "Nov",
+    12: "Dec",
   };
   return (
     <div className="flex items-center justify-between my-2 mx-8 rounded-lg h-12 bg-gray-300">
