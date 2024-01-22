@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound.js";
 import Nutrition from "./pages/Nutrition.js";
 import Skeleton from "./pages/Skeleton.js";
 import Exercises from "../components/pages/Exercises";
+import Home from "./pages/Home.js"
 
 import jwt_decode from "jwt-decode";
 import "../utilities.css";
@@ -43,6 +44,7 @@ const App = () => {
     <>
       <NavBar />
       <Routes>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/exercises" element={<Exercises />}></Route>
         <Route path="/nutrition" element={<Nutrition />}></Route>
       </Routes>

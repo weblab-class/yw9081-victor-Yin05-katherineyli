@@ -42,51 +42,38 @@ const NavBar = (props) => {
   };
 
   return (
-    <nav className="NavBar-container">
-      <div className="NavBar-linkContainer">
-        <div>
+    <div className = "NavBar">
+      <div className = "NavBar-login">
+        {/* <Login path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
+        <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID} >
+      {userId ? (
+        <button className = "LoginButton"
+          onClick={() => {
+            googleLogout();
+            handleLogout();
+          }}
+        >
+          Logout
+        </button>
+      ) : (
+        <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
+      )}
+    </GoogleOAuthProvider>
+      </div>
+      <nav className="NavBar-container u-inlineBlock">
+        <div className="NavBar-linkContainer u-inlineBlock">
           <Link to="/" className="NavBar-link">
             Home
           </Link>
-        </div>
-        {/* {props.userId && (
-          <Link to={`/profile/${props.userId}`} className="NavBar-link">
-            Profile
-          </Link>
-        )} */}
-        <div>
           <Link to="/exercises" className="NavBar-link">
             Exercises
           </Link>
-        </div>
-        <div>
           <Link to="/nutrition" className="NavBar-link">
             Nutri
           </Link>
         </div>
-
-        {/* {props.userId ? (
-          <googleLogout
-            clientId={GOOGLE_CLIENT_ID}
-            buttonText="Logout"
-            onLogoutSuccess={props.handleLogout}
-            onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
-          />
-        ) : (
-          <GoogleLogin
-            clientId={GOOGLE_CLIENT_ID}
-            buttonText="Login"
-            onSuccess={props.handleLogin}
-            onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
-          />
-        )} */}
-      </div>
-      <div>
-        <Login path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

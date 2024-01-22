@@ -1,6 +1,9 @@
+.NavBar{
+  float: right;
+}
 
 .NavBar-container {
-    margin: 0;
+  /* margin: 0;
     position: absolute;
     top: 50%;
     -ms-transform: translateY(-50%);
@@ -11,39 +14,48 @@
     width: 60px;
     left: 5%;
     background-color: #967bb6; /* Black*/
-    overflow-x: hidden;
-    border-radius: 10px;
+  /* overflow-x: hidden;
+    border-radius: 10px; */
+  height: 50px;
+  width: 200px;
+  line-height: 70px;
+  border-color: black;
+  background-color: #967bb6;
+  /* float: right; */
+  display: inline-block;
 }
 
-  .NavBar-title {
-    color: var(--white);
-    font-size: 20px;
-  }
+.NavBar-title {
+  color: var(--white);
+  font-size: 20px;
+}
 
-  .NavBar-title-red {
-    color: #ffa4a4;
-    font-size: 20px;
-  }
+.NavBar-title-red {
+  color: #ffa4a4;
+  font-size: 20px;
+}
 
-  .NavBar-linkContainer {
-    margin-left: var(--s);
-  }
+.NavBar-linkContainer {
+  margin-left: var(--s);
+}
 
-  .NavBar-link,
-  .NavBar-link:visited {
-    color: var(--white);
-    opacity: 0.6;
-    text-decoration: none;
-  }
+.NavBar-link,
+.NavBar-link:visited {
+  color: white;
+  opacity: 0.6;
+  text-decoration: none;
+}
 
-  .NavBar-link:hover {
-    opacity: 0.8;
-  }
+.NavBar-link:hover {
+  opacity: 0.8;
+}
 
-  .NavBar-link.NavBar-login {
-    opacity: 1;
-  }
+.NavBar-login {
+  width: 200px;
+  display: inline-block;
+  margin-top: var(--s);
+}
 
-  .NavBar-link + .NavBar-link {
-    margin-left: var(--m);
-  }
+.NavBar-link + .NavBar-link {
+  margin-left: var(--m);
+}
