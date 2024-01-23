@@ -7,7 +7,6 @@ import { Router } from "react-router-dom";
 import Log from "./pages/Log.js";
 import Nutrition from "./pages/Nutrition.js";
 import NotFound from "./pages/NotFound.js";
-import Nutrition from "./pages/Nutrition.js";
 import Skeleton from "./pages/Skeleton.js";
 import Exercises from "../components/pages/Exercises";
 import Home from "./pages/Home.js"
