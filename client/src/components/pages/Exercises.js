@@ -23,8 +23,8 @@ const Exercises = () => {
         Add Exercise
       </button> */}
       {/* <div>{showNewExercise && <NewExercise />}</div> */}
-      <NewExercise exercises={exercises} setExercises={setExercises} />
-      <ExerciseLog exercises={exercises} setExercises={setExercises} />
+      {/* <NewExercise exercises={exercises} setExercises={setExercises} /> */}
+      {/* <ExerciseLog exercises={exercises} setExercises={setExercises} /> */}
     </div>
   );
 };
