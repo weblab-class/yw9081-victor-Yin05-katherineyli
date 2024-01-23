@@ -5,11 +5,13 @@ import ExerciseItem from "./ExerciseItem";
 
 const ExerciseLog = (props) => {
   return (
-    <div>
-      <h1 className="bg-gray-100 font-semibold text-3xl py-2 px-4">Exercise Log</h1>
-      {props.exercises.map((exercise) => (
-        <ExerciseItem type={exercise.type} duration={exercise.duration} date={exercise.date} />
-      ))}
+    <div className="w-3/4 flex-col">
+      <div className="font-semibold text-lg py-2">Exercise Log</div>
+      <div className="w-full h-96 overflow-auto">
+        {props.exercises.map((exercise) => (
+          <ExerciseItem type={exercise.type} duration={exercise.duration} date={exercise.date} />
+        ))}
+      </div>
     </div>
   );
 };
