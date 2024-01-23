@@ -46,6 +46,7 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 router.post("/exercise", (req, res) => {
   const newExercise = new Exercise({
+    creator_id: req.body.id,
     type: req.body.type,
     duration: req.body.duration,
     date: req.body.date,
@@ -55,7 +56,7 @@ router.post("/exercise", (req, res) => {
 });
 
 router.get("/exercises", (req, res) => {
-  Exercise.find({}).then((exercises) => res.send(exercises));
+  Exercise.find({ creator_id: req.query.id }).then((exercises) => res.send(exercises));
 });
 
 router.get("/nutrition", (req, res) => {

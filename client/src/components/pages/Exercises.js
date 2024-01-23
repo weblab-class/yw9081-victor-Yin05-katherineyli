@@ -2,31 +2,51 @@ import React, { useState, useEffect } from "react";
 import NewExercise from "../NewExercise";
 import ExerciseLog from "../ExerciseLog";
 import { get } from "../../utilities";
+//import { has } from "core-js/core/dict";
 
-const Exercises = () => {
+const Exercises = ({ userId }) => {
   const [showNewExercise, setShowNewExercise] = useState(false);
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
-    get("/api/exercises").then((exercises) => {
-      setExercises(exercises);
-    });
-  }, []);
+    const query = { id: userId };
+    if (userId) {
+      get("/api/exercises", query).then((exercisesObj) => {
+        let reversedExercises = exercisesObj.reverse();
+        setExercises(reversedExercises);
+      });
+    }
+  }, [userId]);
 
   const toggleNewExercise = () => {
     setShowNewExercise(true);
   };
 
+  if (!userId) {
+    return <div>Log in before using Beast Mode Exercises</div>;
+  }
+
+  if (exercises.length === 0) {
+    return (
+      <div className="flex-col">
+        <div className="w-64 h-16 text-3xl font-semibold flex items-center pl-4">Exercises</div>
+        <div className="flex justify-center">
+          <NewExercise exercises={exercises} setExercises={setExercises} userId={userId} />
+        </div>
+        <div className="flex grow justify-center mt-2 overflow-auto">No Exercises</div>
+      </div>
+    );
+  }
   return (
     <div className="flex-col">
-      <div className="w-64 h-16 text-3xl font-semibold flex items-center pl-4">
-        Exercises
-      </div>
+      <div className="w-64 h-16 text-3xl font-semibold flex items-center pl-4">Exercises</div>
       <div className="flex justify-center">
-        <NewExercise exercises={exercises} setExercises={setExercises}/>
+        {userId && (
+          <NewExercise exercises={exercises} setExercises={setExercises} userId={userId} />
+        )}
       </div>
       <div className="flex grow justify-center mt-2 overflow-auto">
-        <ExerciseLog exercises={exercises} setExercises={setExercises}/>
+        <ExerciseLog exercises={exercises} setExercises={setExercises} />
       </div>
       {/* <button onClick={toggleNewExercise} className="hover:bg-gray-200">
         Add Exercise

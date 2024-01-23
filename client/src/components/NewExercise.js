@@ -24,14 +24,20 @@ const NewExercise = (props) => {
   };
 
   const addExercise = () => {
-    const body = {
-      type: inputExercise,
-      duration: inputDuration,
-      date: Date(inputDate),
-    };
-    post("/api/exercise", body).then((exercise) => {
-      props.setExercises(props.exercises.concat(exercise));
-    });
+    if (inputExercise != "" && inputDuration != 0 && inputDate != "") {
+      const body = {
+        id: props.userId,
+        type: inputExercise,
+        duration: inputDuration,
+        date: inputDate,
+      };
+      post("/api/exercise", body).then((exercise) => {
+        props.setExercises([exercise].concat(props.exercises));
+      });
+      setInputDate("");
+      setInputDuration(0);
+      setInputExercise("");
+    }
   };
 
   return (
@@ -40,13 +46,21 @@ const NewExercise = (props) => {
         <div className="flex items-center font-semibold">New Exercise</div>
         {/* <button className="hover:bg-gray-300 px-3 h-8 rounded-lg">Close</button> */}
       </div>
-      <select value={inputExercise} onChange={handleInputExerciseChange} className="py-1 mt-3 mb-2 mx-4 rounded-lg border border-gray-200">
+      <select
+        value={inputExercise}
+        onChange={handleInputExerciseChange}
+        className="py-1 mt-3 mb-2 mx-4 rounded-lg border border-gray-200"
+      >
         <option value="">Choose Exercise...</option>
         <option value="Badminton">Badminton</option>
         <option value="tennis">Tennis</option>
         <option value="soccer">Soccer</option>
       </select>
-      <select value={inputDuration} onChange={handleInputDurationChange} className="py-1 my-2 mx-4 rounded-lg border border-gray-200">
+      <select
+        value={inputDuration}
+        onChange={handleInputDurationChange}
+        className="py-1 my-2 mx-4 rounded-lg border border-gray-200"
+      >
         <option value="">Select Duration...</option>
         <option value="15">15 min</option>
         <option value="30">30 min</option>
