@@ -37,8 +37,9 @@ const Nutrition = ({ userId }) => {
     nutritionsList = <div>No nutrition logs!</div>;
   }
   if (!userId) {
-    return <div>Log in before using Beast Mode</div>;
+    return <div>Log in before using Beast Mode Nutrition</div>;
   }
+
   return (
     <div>
       {userId && <NewNutrition addNewNutrition={addNewNutrition} userId={userId} />}
