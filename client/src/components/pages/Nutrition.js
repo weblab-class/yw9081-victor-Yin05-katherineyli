@@ -25,14 +25,21 @@ const Nutrition = ({ userId }) => {
   let nutritionsList = null;
   const hasNutritions = nutritions.length !== 0;
   if (hasNutritions) {
-    nutritionsList = nutritions.map((nutritionsObj) => (
-      <SingleNutrition
-        content={nutritionsObj.content}
-        date={nutritionsObj.date}
-        calories={nutritionsObj.calories}
-        creator_id={nutritionsObj.creator_id}
-      ></SingleNutrition>
-    ));
+    nutritionsList = (
+      <div className="w-1/2 flex-col">
+        <div className="font-semibold text-lg py-2">Nutrition Log</div>
+        <div className="w-full h-96 overflow-auto">
+          {nutritions.map((nutritionsObj) => (
+            <SingleNutrition
+              content={nutritionsObj.content}
+              date={nutritionsObj.date}
+              calories={nutritionsObj.calories}
+              creator_id={nutritionsObj.creator_id}
+            ></SingleNutrition>
+          ))}
+        </div>
+      </div>
+    );
   } else {
     nutritionsList = <div>No nutrition logs!</div>;
   }
@@ -41,9 +48,16 @@ const Nutrition = ({ userId }) => {
   }
 
   return (
-    <div>
-      {userId && <NewNutrition addNewNutrition={addNewNutrition} userId={userId} />}
-      {nutritionsList}
+    // <div>
+    //   {userId && <NewNutrition addNewNutrition={addNewNutrition} userId={userId} />}
+    //   {nutritionsList}
+    // </div>
+    <div className="flex-col">
+      <div className="w-48 h-16 text-3xl font-semibold flex items-center pl-4">Nutrition</div>
+      <div className="flex justify-center">
+        {userId && <NewNutrition addNewNutrition={addNewNutrition} userId={userId} />}
+      </div>
+      <div className="flex grow justify-center mt-2 overflow-auto">{nutritionsList}</div>
     </div>
   );
 };
