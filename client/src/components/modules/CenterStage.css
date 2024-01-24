@@ -1,0 +1,41 @@
+.container{
+    position: relative;
+}
+
+.floatingIsland{
+    height: 460px;
+    width: 690px;
+    padding-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panpan1{
+    position: absolute;
+    left: 570px;
+    top: 110px;
+    width:auto;
+    height:160px;
+}
+.mochabear1{
+    position: absolute;
+    left: 920px;
+    top: 130px;
+    width:auto;
+    height:130px;
+}
+.pusheen1{
+    position: absolute;
+    left: 750px;
+    top: 110px;
+    width:auto;
+    height:180px;
+}
+.mochicat1{
+    position: absolute;
+    left: 700px;
+    top: 40px;
+    width:auto;
+    height:120px;
+}

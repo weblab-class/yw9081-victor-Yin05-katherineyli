@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import Exercises from "../components/pages/Exercises";
 import Home from "./pages/Home.js";
+import HomeIcon from "./modules/HomeIcon.js";
 import Nutrition from "./pages/Nutrition.js";
 
 import jwt_decode from "jwt-decode";
@@ -23,7 +24,7 @@ import user from "../../../server/models/user.js";
 const App = () => {
   const [userId, setUserId] = useState(undefined);
 
-  useEffect(() => {
+   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
@@ -47,14 +48,21 @@ const App = () => {
     post("/api/logout");
   };
   return (
-    <>
-      <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
+    <div className = "bg-blue-200 h-screen">
+      <div className="flow-root">
+        <div className="u-inlineBlock">
+          <HomeIcon />
+        </div>
+        <div className="u-inlineBlock float-right">
+          <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
+        </div>
+      </div>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/exercises" element={<Exercises userId={userId} />}></Route>
-        <Route path="/nutrition" element={<Nutrition userId={userId} />}></Route>
+        <Route path="/exercises" element={<Exercises />}></Route>
+        <Route path="/nutrition" element={<Nutrition />}></Route>
       </Routes>
-    </>
+    </div>
   );
 };
 
