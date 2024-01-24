@@ -35,26 +35,51 @@ const NewPostInput = (props) => {
   };
 
   return (
-    <div className="u-flex">
-      <input
+    <div className="relative mt-4 w-1/4 h-72 flex-col flex rounded-lg border border-black">
+      <div class="flex justify-between bg-gray-100 p-4 rounded-t-lg">
+        <textarea
+          value={value}
+          onChange={handleChange}
+          className="flex items-center focus: h-8 w-full bg-transparent resize-none text-xl outline-none"
+          placeholder={props.defaultText}
+        ></textarea>
+      </div>
+      {/* <input
         type="text"
         placeholder={props.defaultText}
         value={value}
         onChange={handleChange}
         className="NewPostInput-input"
-      />
-      <button
+      /> */}
+      <div className="flex items-center ml-3 mt-1">
+        Select Date:
+        <input
+          onChange={handleDateChange}
+          value={selectedDate}
+          type="date"
+          id="dateInput"
+          className="py-1 px-2 my-2 mx-4 rounded-lg border border-gray-200 w-60"
+        ></input>
+      </div>
+      {/* <button
         type="submit"
         className="NewPostInput-button u-pointer"
         value="Submit"
         onClick={handleSubmit}
       >
         Submit
+      </button> */}
+      <button
+        onClick={handleSubmit}
+        value="Submit"
+        className="flex absolute right-4 bottom-4 bg-gray-200 rounded-lg px-4 py-2"
+      >
+        Add
       </button>
-      <div>
+      {/* <div>
         <label htmlFor="dateInput">Select Date:</label>
         <input type="date" id="dateInput" value={selectedDate} onChange={handleDateChange} />
-      </div>
+      </div> */}
     </div>
   );
 };

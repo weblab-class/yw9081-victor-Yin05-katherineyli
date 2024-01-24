@@ -15,7 +15,7 @@ import { get } from "../../utilities";
 const SingleNutrition = (props) => {
   console.log("In single nutrition the type of date is " + typeof props.date);
   return (
-    <div>
+    <div className="mb-4 border border-black w-full rounded-lg p-4">
       <p>Date: {props.date}</p>
       <p>Food logged: {props.content}</p>
       <div>
@@ -31,5 +31,6 @@ const SingleNutrition = (props) => {
     </div>
   );
 };
+
 
 export default SingleNutrition;
