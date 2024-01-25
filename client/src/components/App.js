@@ -21,9 +21,11 @@ import user from "../../../server/models/user.js";
 /**
  * Define the "App" component
  */
+
 const App = () => {
   const [userId, setUserId] = useState(undefined);
   const [userScores, setUserScores] = useState({ core: 0, arms: 0, legs: 0, cardio: 0 });
+
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
