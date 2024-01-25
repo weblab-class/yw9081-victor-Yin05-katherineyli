@@ -77,10 +77,10 @@ const App = () => {
 
   return (
     <div className="bg-blue-200 h-screen">
-      {userScores.core}
+      {/* {userScores.core}
       {userScores.arms}
       {userScores.legs}
-      {userScores.cardio}
+      {userScores.cardio} */}
       <div className="flow-root">
         <div className="u-inlineBlock">
           <HomeIcon />
@@ -90,7 +90,7 @@ const App = () => {
         </div>
       </div>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home userId = {userId} userScores = {userScores}/>}></Route>
         <Route
           path="/exercises"
           element={

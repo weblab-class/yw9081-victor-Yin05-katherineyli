@@ -15,7 +15,7 @@ function Home(props) {
         <h4>the one-stop shop for all your fitness needs!</h4>
       </div>
       <div className="flex flex-grow justify-center items-center">
-        <CenterStage/>
+        <CenterStage userId = {props.userId} userScores = {props.userScores}/>
       </div>
       <div className = " flex justify-center items-center">
         <h4>log an exercise to get started</h4>
