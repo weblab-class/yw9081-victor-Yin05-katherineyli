@@ -33,7 +33,7 @@ const NavBar = (props) => {
                 props.handleLogout();
               }}
             >
-              Logout
+              <p className = "py-3">Logout</p>
             </button>
           ) : (
             <GoogleLogin onSuccess={props.handleLogin} onError={(err) => console.log(err)} />
@@ -43,13 +43,13 @@ const NavBar = (props) => {
       <nav className="NavBar-container u-inlineBlock">
         <div className="NavBar-linkContainer flex py-3">
           <a href = "/">
-            <img src={homeicon} alt = "Home Icon" className = "h-11 pl-3 py-1 pr-4"></img>
+            <img src={homeicon} alt = "Home Icon" className = "h-11 pl-3 pr-4"></img>
           </a>
           <a href = "/exercises">
-            <img src={runnericon} alt = "Runner Icon" className = "h-11 py-1 pr-5"></img>
+            <img src={runnericon} alt = "Runner Icon" className = "h-11 pr-5"></img>
           </a>
           <a href = "/nutrition">
-            <img src={appleicon} alt = "Apple Icon" className = "py-1 h-11"></img>
+            <img src={appleicon} alt = "Apple Icon" className = "h-11"></img>
           </a>
         </div>
       </nav>
