@@ -18,6 +18,8 @@ import { socket } from "../client-socket.js";
 import { get, post } from "../utilities";
 import user from "../../../server/models/user.js";
 
+import "./App.css";
+
 /**
  * Define the "App" component
  */
@@ -76,15 +78,15 @@ const App = () => {
   };
 
   return (
-    <div className="bg-blue-200 h-screen">
+    <div className="body">
       {/* {userScores.core}
       {userScores.arms}
       {userScores.legs}
       {userScores.cardio} */}
       <div className="flow-root">
-        <div className="u-inlineBlock">
+        {/* <div className="u-inlineBlock">
           <HomeIcon />
-        </div>
+        </div> */}
         <div className="u-inlineBlock float-right">
           <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
         </div>
