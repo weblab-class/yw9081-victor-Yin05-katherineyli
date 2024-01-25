@@ -23,6 +23,7 @@ import user from "../../../server/models/user.js";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [userScores, setUserScores] = useState({ core: 0, arms: 0, legs: 0, cardio: 0 });
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -33,13 +34,37 @@ const App = () => {
     });
   }, []);
 
+  //get or post on mount based on whether user has scores yet or not
+  // useEffect(() => {
+
+  // }, [userId]);
+
+  useEffect(() => {
+    if (userId) {
+      const query = { id: userId };
+      get("/api/scores", query).then((anIdScore) => {
+        console.log(anIdScore[0]);
+        if (anIdScore.length !== 0) {
+          setUserScores(anIdScore[0].scores);
+          // console.log("MEOWMEOWMEOW");
+          console.log(userScores);
+        } else {
+          // console.log("WOOFWOOFWOOF");
+          const body = { id: userId };
+          post("/api/scores", body);
+        }
+      });
+    }
+  }, [userId]);
+
   const handleLogin = (credentialResponse) => {
     const userToken = credentialResponse.credential;
     const decodedCredential = jwt_decode(userToken);
     console.log(`Logged in as ${decodedCredential.name}`);
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
-      post("/api/initsocket", { socketid: socket.id });
+      // console.log(user._id);
+      return user;
     });
   };
 
@@ -47,8 +72,13 @@ const App = () => {
     setUserId(undefined);
     post("/api/logout");
   };
+
   return (
     <div className="bg-blue-200 h-screen">
+      {userScores.core}
+      {userScores.arms}
+      {userScores.legs}
+      {userScores.cardio}
       <div className="flow-root">
         <div className="u-inlineBlock">
           <HomeIcon />
@@ -59,7 +89,12 @@ const App = () => {
       </div>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/exercises" element={<Exercises userId={userId} />}></Route>
+        <Route
+          path="/exercises"
+          element={
+            <Exercises userId={userId} userScores={userScores} setUserScores={setUserScores} />
+          }
+        ></Route>
         <Route path="/nutrition" element={<Nutrition userId={userId} />}></Route>
       </Routes>
     </div>

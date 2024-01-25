@@ -10,6 +10,7 @@
 const express = require("express");
 
 // import models so we can interact with the database
+const IdScore = require("./models/idScore");
 const User = require("./models/user");
 const Exercise = require("./models/exercise");
 const Nutrition = require("./models/nutritions");
@@ -44,6 +45,33 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+
+router.get("/scores", (req, res) => {
+  IdScore.find({ creator_id: req.query.id }).then((anIdScore) => res.send(anIdScore));
+});
+
+router.put("/scores", (req, res) => {
+  IdScore.findOne({ creator_id: req.query.id }).then((anIdScore) => {
+    anIdScore.scores = req.body.newScores;
+    anIdScore.save().then((newIdScore) => {
+      res.send(newIdScore);
+    });
+  });
+});
+
+router.post("/scores", (req, res) => {
+  console.log("THE USER ID RIGHT NOW IS " + req.body.id);
+  const newIdScore = new IdScore({
+    creator_id: req.body.id,
+    scores: { core: 0, arms: 0, legs: 0, cardio: 0 },
+  });
+  newIdScore.save().then((anIdScore) => res.send(anIdScore));
+});
+
+router.get("/exercises", (req, res) => {
+  Exercise.find({ creator_id: req.query.id }).then((exercises) => res.send(exercises));
+});
+
 router.post("/exercise", (req, res) => {
   const newExercise = new Exercise({
     creator_id: req.body.id,
@@ -53,10 +81,6 @@ router.post("/exercise", (req, res) => {
   });
 
   newExercise.save().then((exercise) => res.send(exercise));
-});
-
-router.get("/exercises", (req, res) => {
-  Exercise.find({ creator_id: req.query.id }).then((exercises) => res.send(exercises));
 });
 
 router.get("/nutrition", (req, res) => {

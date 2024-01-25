@@ -61,3 +61,16 @@ export function post(endpoint, params = {}) {
       throw `POST request to ${endpoint} failed with error:\n${error}`;
     });
 }
+
+// export function put(endpoint, params = {}) {
+//   return fetch(endpoint, {
+//     method: "put", // Specify the method as PUT
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(params), // Send the params as JSON in the request body
+//   })
+//     .then(convertToJSON) // convert result to JSON object
+//     .catch((error) => {
+//       // give a useful error message
+//       throw `PUT request to ${endpoint} failed with error:\n${error}`;
+//     });
+// }
