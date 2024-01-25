@@ -8,6 +8,15 @@ const NewExercise = (props) => {
   const [inputDuration, setInputDuration] = useState(0);
   const [inputDate, setInputDate] = useState("");
 
+  const exerciseToScores = {
+    Badminton: {
+      exerciseCore: 2,
+      exerciseArms: 3,
+      exerciseLegs: 0,
+      exerciseCardio: 0,
+    },
+  };
+
   const handleInputExerciseChange = (event) => {
     const value = event.target.value;
     setInputExercise(value);
@@ -34,6 +43,34 @@ const NewExercise = (props) => {
       post("/api/exercise", body).then((exercise) => {
         props.setExercises([exercise].concat(props.exercises));
       });
+      //inputExercise -> exerciseScores
+      console.log(inputExercise);
+      const exerciseScores = exerciseToScores[inputExercise];
+      //put request
+      const query = { id: props.userId };
+      console.log(exerciseScores);
+      const { exerciseCore, exerciseArms, exerciseLegs, exerciseCardio } = exerciseScores;
+      console.log(exerciseCore);
+      console.log("next up is userscores");
+      console.log(props.userScores);
+      const { core, arms, legs, cardio } = props.userScores;
+
+      console.log(core);
+      const body2 = {
+        newScores: {
+          core: exerciseCore + core,
+          arms: exerciseArms + arms,
+          legs: exerciseLegs + legs,
+          cardio: exerciseCardio + cardio,
+        },
+      };
+      // put("/api/scores", (query = query), (body = body2)).then((scores) => {
+      //   props.setUserScores(scores.scores);
+      // });
+
+      //comment this out after put request is fixed
+      props.setUserScores(body2["newScores"]);
+
       setInputDate("");
       setInputDuration(0);
       setInputExercise("");

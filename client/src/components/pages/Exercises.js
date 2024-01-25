@@ -4,25 +4,25 @@ import ExerciseLog from "../ExerciseLog";
 import { get } from "../../utilities";
 //import { has } from "core-js/core/dict";
 
-const Exercises = ({ userId }) => {
+const Exercises = (props) => {
   const [showNewExercise, setShowNewExercise] = useState(false);
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
-    const query = { id: userId };
-    if (userId) {
+    const query = { id: props.userId };
+    if (props.userId) {
       get("/api/exercises", query).then((exercisesObj) => {
         let reversedExercises = exercisesObj.reverse();
         setExercises(reversedExercises);
       });
     }
-  }, [userId]);
+  }, [props.userId]);
 
   const toggleNewExercise = () => {
     setShowNewExercise(true);
   };
 
-  if (!userId) {
+  if (!props.userId) {
     return <div>Log in before using Beast Mode Exercises</div>;
   }
 
@@ -31,7 +31,13 @@ const Exercises = ({ userId }) => {
       <div className="flex-col">
         <div className="w-64 h-16 text-3xl font-semibold flex items-center pl-4">Exercises</div>
         <div className="flex justify-center">
-          <NewExercise exercises={exercises} setExercises={setExercises} userId={userId} />
+          <NewExercise
+            userScores={props.userScores}
+            setUserScores={props.setUserScores}
+            exercises={exercises}
+            setExercises={setExercises}
+            userId={props.userId}
+          />
         </div>
         <div className="flex grow justify-center mt-2 overflow-auto">No Exercises</div>
       </div>
@@ -41,8 +47,14 @@ const Exercises = ({ userId }) => {
     <div className="flex-col">
       <div className="w-64 h-16 text-3xl font-semibold flex items-center pl-4">Exercises</div>
       <div className="flex justify-center">
-        {userId && (
-          <NewExercise exercises={exercises} setExercises={setExercises} userId={userId} />
+        {props.userId && (
+          <NewExercise
+            userScores={props.userScores}
+            setUserScores={props.setUserScores}
+            exercises={exercises}
+            setExercises={setExercises}
+            userId={props.userId}
+          />
         )}
       </div>
       <div className="flex grow justify-center mt-2 overflow-auto">
