@@ -21,8 +21,10 @@ import user from "../../../server/models/user.js";
 /**
  * Define the "App" component
  */
+
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
