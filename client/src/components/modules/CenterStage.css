@@ -1,4 +1,3 @@
-
 .container {
   position: relative;
 }
@@ -51,19 +50,7 @@
   top: 110px;
   width: auto;
   height: 180px;
-.pusheen1 {
-  position: absolute;
-  left: 750px;
-  top: 110px;
-  width: auto;
-  height: 180px;
 }
-.mochicat1 {
-  position: absolute;
-  left: 700px;
-  top: 40px;
-  width: auto;
-  height: 120px;
 .mochicat1 {
   position: absolute;
   left: 700px;
