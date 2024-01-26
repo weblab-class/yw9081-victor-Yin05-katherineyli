@@ -9,12 +9,16 @@ import Exercises from "../pages/Exercises";
 import { FaRunning } from "react-icons/fa";
 import { FaUtensils } from "react-icons/fa6";
 import { IoHome } from "react-icons/io5";
+import {FaRegQuestionCircle} from "react-icons/fa"
+import Popup from "../../../../node_modules/reactjs-popup";
+import PopupPage from "./PopupPage.js"
 
 import "./NavBar.css";
 import Login from "./Login.js";
 import appleicon from "./images/apple_icon.png";
 import homeicon from "./images/home_icon.png";
 import runnericon from "./images/runner_icon.png";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 // This identifies your web application to Google's authentication service
 const GOOGLE_CLIENT_ID = "670940664828-uil6in2dfnfse28fvsuc1tp93g5gv63e.apps.googleusercontent.com";
@@ -45,6 +49,21 @@ const NavBar = (props) => {
         </GoogleOAuthProvider>
       </div>
 
+      <div>
+        <Popup trigger={<FaRegQuestionCircle className = "w-10 h-10 mr-4 text-white hover:text-gray-200"/>} modal nested>
+          {(close) => (
+            <div className="modal grid place-items-center">
+              <div className="content  w-screen h-96 ">
+                <PopupPage />
+              </div>
+              <div className = "pt-3">
+                <IoIosCloseCircleOutline className = "w-9 h-9 text-white hover:text-red-600" onClick = {() => close()} />
+              </div>
+            </div>
+          )}
+        </Popup>
+      </div>
+
       <a href="/">
         <IoHome className="w-10 h-10 mr-4 text-white hover:text-gray-200" />
       </a>
@@ -57,7 +76,7 @@ const NavBar = (props) => {
 
       <div className="NavBar-linkContainer flex py-3 mt-3 items-center"></div>
       {/* <nav className="NavBar-container u-inlineBlock">
-        
+
       </nav> */}
     </div>
   );
