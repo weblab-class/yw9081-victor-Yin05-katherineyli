@@ -76,15 +76,15 @@ const NewExercise = (props) => {
   };
 
   return (
-    <div className="bg-white relative mt-4 w-1/2 h-72 flex-col flex rounded-lg border border-black">
-      <div className="flex items-center justify-between bg-gray-100 p-4 h-12 rounded-t-lg">
+    <div className="bg-white relative mt-4 w-1/3 h-72 flex-col flex rounded-lg shadow-md">
+      <div className="flex items-center justify-between bg-gray-100 p-4 h-16 rounded-t-lg text-xl">
         <div className="flex items-center font-semibold">New Exercise</div>
         {/* <button className="hover:bg-gray-300 px-3 h-8 rounded-lg">Close</button> */}
       </div>
       <select
         value={inputExercise}
         onChange={handleInputExerciseChange}
-        className="py-1 mt-3 mb-2 mx-4 rounded-lg border border-gray-200"
+        className="py-2 px-2 mt-3 mb-2 mx-4 rounded-lg border border-gray-200 hover:bg-gray-100"
       >
         <option value="">Choose Exercise...</option>
         <option value="Badminton">Badminton</option>
@@ -94,7 +94,7 @@ const NewExercise = (props) => {
       <select
         value={inputDuration}
         onChange={handleInputDurationChange}
-        className="py-1 my-2 mx-4 rounded-lg border border-gray-200"
+        className="py-2 px-2 my-1 mx-4 rounded-lg border border-gray-200 hover:bg-gray-100"
       >
         <option value="">Select Duration...</option>
         <option value="15">15 min</option>
@@ -105,7 +105,7 @@ const NewExercise = (props) => {
         onChange={handleInputDateChange}
         value={inputDate}
         type="date"
-        className="py-1 my-2 mx-4 rounded-lg border border-gray-200"
+        className="py-2 px-2 my-1 mx-4 rounded-lg border border-gray-200 hover:bg-gray-100"
       ></input>
       <button
         onClick={addExercise}
