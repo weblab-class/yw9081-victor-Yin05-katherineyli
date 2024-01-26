@@ -11,32 +11,13 @@
   margin-right: auto;
 }
 
-.background-container {
-  position: relative;
-  width: 690; /* Adjust the width of your background image container */
-  height: 460px; /* Adjust the height of your background image container */
-  background-image: url("../modules/images/floating_island.png"); /* URL to your background image */
-  background-size: cover; /* Adjust as needed */
-  background-position: center; /* Adjust as needed */
-}
-
-.random-images {
-}
-
-.random-image {
-  position: absolute;
-  width: 100px; /* Adjust the width of your images */
-  height: auto; /* Adjust the height of your images */
-}
-
 .panpan1 {
   position: absolute;
-  left: 460px;
-  top: 130px;
+  left: 570px;
+  top: 110px;
   width: auto;
-  height: 130px;
+  height: 160px;
 }
-
 .mochabear1 {
   position: absolute;
   left: 920px;
