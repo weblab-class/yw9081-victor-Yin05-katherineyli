@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import floating_island from "./images/floating_island.png"
+import floating_island from "./images/floating_island2.png"
 import panpan1 from "./images/panpan1.png"
 import mochabear1 from "./images/mochabear1.png"
 import pusheen1 from "./images/pusheen1.png"
