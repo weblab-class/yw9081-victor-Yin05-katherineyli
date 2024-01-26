@@ -26,8 +26,12 @@ import "./App.css";
 
 const App = () => {
   const [userId, setUserId] = useState(undefined);
-  const [userScores, setUserScores] = useState({ core: 0, arms: 0, legs: 0, cardio: 0 });
-
+  const [userScores, setUserScores] = useState({
+    core: 0,
+    arms: 0,
+    legs: 0,
+    cardio: 0,
+  });
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -38,25 +42,23 @@ const App = () => {
     });
   }, []);
 
-  //get or post on mount based on whether user has scores yet or not
-  // useEffect(() => {
-
-  // }, [userId]);
-
   useEffect(() => {
     if (userId) {
       const query = { id: userId };
       get("/api/scores", query).then((anIdScore) => {
-        console.log(anIdScore[0]);
         if (anIdScore.length !== 0) {
           setUserScores(anIdScore[0].scores);
-          // console.log("MEOWMEOWMEOW");
-          console.log(userScores);
         } else {
-          // console.log("WOOFWOOFWOOF");
-          const body = { id: userId };
+          var body = { id: userId, theRequest: 0 };
           post("/api/scores", body);
         }
+      });
+    } else {
+      setUserScores({
+        core: 0,
+        arms: 0,
+        legs: 0,
+        cardio: 0,
       });
     }
   }, [userId]);
@@ -85,7 +87,7 @@ const App = () => {
       {userScores.cardio} */}
       <NavBar className="u-inlineBlock float-right" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Home userId = {userId} userScores = {userScores}/>}></Route>
+        <Route path="/" element={<Home userId={userId} userScores={userScores} />}></Route>
         <Route
           path="/exercises"
           element={

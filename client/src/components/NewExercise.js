@@ -13,7 +13,7 @@ const NewExercise = (props) => {
       exerciseCore: 2,
       exerciseArms: 3,
       exerciseLegs: 0,
-      exerciseCardio: 0,
+      exerciseCardio: 30,
     },
   };
 
@@ -34,7 +34,7 @@ const NewExercise = (props) => {
 
   const addExercise = () => {
     if (inputExercise != "" && inputDuration != 0 && inputDate != "") {
-      const body = {
+      var body = {
         id: props.userId,
         type: inputExercise,
         duration: inputDuration,
@@ -47,7 +47,6 @@ const NewExercise = (props) => {
       console.log(inputExercise);
       const exerciseScores = exerciseToScores[inputExercise];
       //put request
-      const query = { id: props.userId };
       console.log(exerciseScores);
       const { exerciseCore, exerciseArms, exerciseLegs, exerciseCardio } = exerciseScores;
       console.log(exerciseCore);
@@ -56,7 +55,9 @@ const NewExercise = (props) => {
       const { core, arms, legs, cardio } = props.userScores;
 
       console.log(core);
-      const body2 = {
+      body = {
+        id: props.userId,
+        theRequest: 1,
         newScores: {
           core: exerciseCore + core,
           arms: exerciseArms + arms,
@@ -64,12 +65,9 @@ const NewExercise = (props) => {
           cardio: exerciseCardio + cardio,
         },
       };
-      // put("/api/scores", (query = query), (body = body2)).then((scores) => {
-      //   props.setUserScores(scores.scores);
-      // });
-
-      //comment this out after put request is fixed
-      props.setUserScores(body2["newScores"]);
+      post("/api/scores", body).then((theIdScore) => {
+        props.setUserScores(theIdScore.scores);
+      });
 
       setInputDate("");
       setInputDuration(0);
