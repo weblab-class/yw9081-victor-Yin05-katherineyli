@@ -78,19 +78,12 @@ const App = () => {
   };
 
   return (
-    <div className="body">
+    <div className="body h-screen flex flex-col">
       {/* {userScores.core}
       {userScores.arms}
       {userScores.legs}
       {userScores.cardio} */}
-      <div className="flow-root">
-        {/* <div className="u-inlineBlock">
-          <HomeIcon />
-        </div> */}
-        <div className="u-inlineBlock float-right">
-          <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
-        </div>
-      </div>
+      <NavBar className="u-inlineBlock float-right" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home userId = {userId} userScores = {userScores}/>}></Route>
         <Route
