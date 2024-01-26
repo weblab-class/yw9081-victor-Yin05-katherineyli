@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const IdScoreSchema = new mongoose.Schema({
   creator_id: String,
   scores: Object,
+  theDate: Date,
 });
 
 // compile model from schema

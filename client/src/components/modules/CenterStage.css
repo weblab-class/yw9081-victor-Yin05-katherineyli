@@ -1,41 +1,60 @@
-.container{
-    position: relative;
+.container {
+  position: relative;
 }
 
-.floatingIsland{
-    height: 460px;
-    width: 690px;
-    padding-top: 30px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.floatingIsland {
+  height: 460px;
+  width: 690px;
+  padding-top: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.panpan1{
-    position: absolute;
-    left: 570px;
-    top: 110px;
-    width:auto;
-    height:160px;
+.background-container {
+  position: relative;
+  width: 690; /* Adjust the width of your background image container */
+  height: 460px; /* Adjust the height of your background image container */
+  background-image: url("../modules/images/floating_island.png"); /* URL to your background image */
+  background-size: cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
 }
-.mochabear1{
-    position: absolute;
-    left: 920px;
-    top: 130px;
-    width:auto;
-    height:130px;
+
+.random-images {
 }
-.pusheen1{
-    position: absolute;
-    left: 750px;
-    top: 110px;
-    width:auto;
-    height:180px;
+
+.random-image {
+  position: absolute;
+  width: 100px; /* Adjust the width of your images */
+  height: auto; /* Adjust the height of your images */
 }
-.mochicat1{
-    position: absolute;
-    left: 700px;
-    top: 40px;
-    width:auto;
-    height:120px;
+
+.panpan1 {
+  position: absolute;
+  left: 460px;
+  top: 130px;
+  width: auto;
+  height: 130px;
+}
+
+.mochabear1 {
+  position: absolute;
+  left: 920px;
+  top: 130px;
+  width: auto;
+  height: 130px;
+}
+.pusheen1 {
+  position: absolute;
+  left: 750px;
+  top: 110px;
+  width: auto;
+  height: 180px;
+}
+.mochicat1 {
+  position: absolute;
+  left: 700px;
+  top: 40px;
+  width: auto;
+  height: 120px;
 }

@@ -44,14 +44,39 @@ const CenterStage = (props) => {
     cardio_pic = pusheen1;
   }
 
-  return (
-    <div className="container">
-      <img src={floating_island} alt="Floating Island" className="floatingIsland" />
+  document.addEventListener("DOMContentLoaded", function () {
+    var container = document.querySelector(".random-position");
+    var image = container.querySelector("img");
 
-      <img src={arms_pic} className="panpan1" />
-      <img src={legs_pic} className="mochabear1" />
-      <img src={core_pic} className="pusheen1" />
-      <img src={cardio_pic} className="mochicat1" />
+    // Generate random position
+    var randomX = Math.floor(Math.random() * 600);
+    var randomY = Math.floor(Math.random() * 10);
+
+    // Apply random position
+    container.style.left = randomX + "px";
+    container.style.top = randomY + "px";
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    var images = document.querySelectorAll(".random-image");
+
+    images.forEach(function (image) {
+      // Generate random positions
+      var randomX = Math.floor(Math.random() * 600); // Adjust 100 according to image width
+      var randomY = 100 + Math.floor(Math.random() * 10); // Adjust 100 according to image height
+
+      // Apply random positions as inline styles
+      image.style.left = randomX + "px";
+      image.style.top = randomY + "px";
+    });
+  });
+
+  return (
+    <div class="relative h-160 w-160">
+      <img src={floating_island} className="floatingIsland " />
+      <div class="random-images">
+        <img src={arms_pic} class="random-image" />
+        <img src={legs_pic} class="random-image" />
+      </div>
     </div>
   );
 };
