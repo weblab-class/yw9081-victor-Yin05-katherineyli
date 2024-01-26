@@ -53,7 +53,7 @@ const Nutrition = ({ userId }) => {
     //   {nutritionsList}
     // </div>
     <div className="flex-col">
-      <div className="w-48 h-16 text-3xl font-semibold flex items-center pl-4">Nutrition</div>
+      <div className="w-screen flex justify-center h-16 text-3xl font-semibold items-center">Nutrition</div>
       <div className="flex justify-center">
         {userId && <NewNutrition addNewNutrition={addNewNutrition} userId={userId} />}
       </div>
