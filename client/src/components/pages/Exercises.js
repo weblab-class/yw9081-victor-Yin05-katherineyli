@@ -29,7 +29,7 @@ const Exercises = (props) => {
   if (exercises.length === 0) {
     return (
       <div className="flex-col">
-        <div className="w-64 h-16 text-3xl font-semibold flex items-center pl-4">Exercises</div>
+        <div className="w-screen h-16 text-3xl font-semibold flex items-center pl-8">Exercises</div>
         <div className="flex justify-center">
           <NewExercise
             userScores={props.userScores}
@@ -44,8 +44,8 @@ const Exercises = (props) => {
     );
   }
   return (
-    <div className="flex-col">
-      <div className="w-64 h-16 text-3xl font-semibold flex items-center pl-4">Exercises</div>
+    <div className="flex-col grow">
+      <div className="w-screen h-16 text-3xl font-semibold flex items-center pl-12">Exercises</div>
       <div className="flex justify-center">
         {props.userId && (
           <NewExercise
