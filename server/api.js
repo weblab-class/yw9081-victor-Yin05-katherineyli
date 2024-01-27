@@ -52,14 +52,12 @@ router.get("/scores", (req, res) => {
 
 router.post("/scores", (req, res) => {
   if (req.body.theRequest == 0) {
-    console.log("VICTOR IS IN");
     const newIdScore = new IdScore({
       creator_id: req.body.id,
       scores: { core: 0, arms: 0, legs: 0, cardio: 0 },
     });
     newIdScore.save().then((anIdScore) => res.send(anIdScore));
   } else {
-    console.log("VICTOR IS UPDATING THINGS");
     IdScore.findOne({ creator_id: req.body.id }).then((anIdScore) => {
       anIdScore.scores = req.body.newScores;
       anIdScore.save().then((newIdScore) => {

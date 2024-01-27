@@ -26,12 +26,7 @@ import "./App.css";
 
 const App = () => {
   const [userId, setUserId] = useState(undefined);
-  const [userScores, setUserScores] = useState({
-    core: 0,
-    arms: 0,
-    legs: 0,
-    cardio: 0,
-  });
+  const [userScores, setUserScores] = useState(null);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -51,15 +46,11 @@ const App = () => {
         } else {
           var body = { id: userId, theRequest: 0 };
           post("/api/scores", body);
+          setUserScores({ cardio: 0, arms: 0, legs: 0, core: 0 });
         }
       });
     } else {
-      setUserScores({
-        core: 0,
-        arms: 0,
-        legs: 0,
-        cardio: 0,
-      });
+      setUserScores(null);
     }
   }, [userId]);
 
@@ -85,7 +76,12 @@ const App = () => {
       {userScores.arms}
       {userScores.legs}
       {userScores.cardio} */}
-      <NavBar className="u-inlineBlock float-right" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
+      <NavBar
+        className="u-inlineBlock float-right"
+        userId={userId}
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+      />
       <Routes>
         <Route path="/" element={<Home userId={userId} userScores={userScores} />}></Route>
         <Route
