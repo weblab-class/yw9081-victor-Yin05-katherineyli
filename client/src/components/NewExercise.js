@@ -59,8 +59,8 @@ const NewExercise = (props) => {
         date: inputDate,
       };
       console.log(body);
-      post("/api/exercise", body).then((exercise) => {
-        props.setExercises([exercise].concat(props.exercises));
+      post("/api/exercises", body).then((exercise) => {
+        props.getExercises();
       });
       const exerciseScores = exerciseToScores[inputExercise];
       const { exerciseCore, exerciseArms, exerciseLegs, exerciseCardio } = exerciseScores;

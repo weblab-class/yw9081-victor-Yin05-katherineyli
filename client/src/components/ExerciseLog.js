@@ -9,7 +9,14 @@ const ExerciseLog = (props) => {
       <div className="font-semibold text-lg py-2">Exercise Log</div>
       <div className="w-full h-72 overflow-auto">
         {props.exercises.map((exercise) => (
-          <ExerciseItem type={exercise.type} duration={exercise.duration} date={exercise.date} />
+          <ExerciseItem
+            type={exercise.type}
+            duration={exercise.duration}
+            date={exercise.date}
+            _id={exercise._id}
+            setExercises={props.setExercises}
+            exercises={props.exercises}
+          />
         ))}
       </div>
     </div>
