@@ -3,8 +3,8 @@
 }
 
 .floatingIsland {
+  width: 760px;
   height: 460px;
-  width: 690px;
   padding-top: 30px;
   display: block;
   margin-left: auto;
@@ -13,7 +13,7 @@
 
 .background-container {
   position: relative;
-  width: 690; /* Adjust the width of your background image container */
+  width: 760px; /* Adjust the width of your background image container */
   height: 460px; /* Adjust the height of your background image container */
   background-image: url("../modules/images/floating_island.png"); /* URL to your background image */
   background-size: cover; /* Adjust as needed */
@@ -25,8 +25,9 @@
 
 .random-image {
   position: absolute;
-  width: 100px; /* Adjust the width of your images */
-  height: auto; /* Adjust the height of your images */
+  height: 80px; /* Adjust the width of your images */
+  width: auto; /* Adjust the height of your images */
+  display: none;
 }
 
 .panpan1 {
