@@ -33,13 +33,13 @@ const CenterStage = (props) => {
 
   let catThing = null;
   if (props.userScores && props.userId) {
-    for (var i = 0; i <= props.userScores.core / 20; i++) {
+    for (var i = 0; i <= props.userScores.arms / 20; i++) {
       catList.push(1);
     }
-    for (var i = 0; i <= props.userScores.arms / 20; i++) {
+    for (var i = 0; i <= props.userScores.legs / 20; i++) {
       catList.push(2);
     }
-    for (var i = 0; i <= props.userScores.legs / 20; i++) {
+    for (var i = 0; i <= props.userScores.core / 20; i++) {
       catList.push(3);
     }
     for (var i = 0; i <= props.userScores.cardio / 20; i++) {

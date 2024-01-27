@@ -25,7 +25,51 @@
 
 .random-image {
   position: absolute;
+  display: none;
   height: 80px; /* Adjust the width of your images */
   width: auto; /* Adjust the height of your images */
-  display: none;
+}
+
+.cat-container1 {
+  position: relative;
+  width: 41px;
+  height: 100%;
+}
+
+.cat-container2 {
+  position: relative;
+  width: 96px;
+  height: 100%;
+}
+
+.cat-container3 {
+  position: relative;
+  width: 66px;
+  height: 100%;
+}
+
+.cat-container4 {
+  position: relative;
+  width: 53px;
+  height: 100%;
+}
+
+.cat-image {
+  position: absolute;
+  height: 80px; /* Adjust the width of your images */
+  width: auto; /* Adjust the height of your images */
+  left: 0;
+  bottom: 0;
+}
+
+.cat-info {
+  position: absolute;
+  right: -100px;
+  top: -80px;
+  width: 120px;
+  height: 70px;
+  padding: 10px;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  background-color: white;
 }
