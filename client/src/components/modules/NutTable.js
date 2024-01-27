@@ -11,17 +11,15 @@ import { get } from "../../utilities";
 const NutTable = (props) => {
   const nutTableList = props.calories.map((food) => (
     <tr>
-      <td>{food.name}</td>
-      <td>{food.calories}</td>
-      <td>{food.serving_size_g}</td>
+      <td className="pr-4">{food.calories}</td>
+      <td className="pr-4">{food.serving_size_g}</td>
     </tr>
   ));
   return (
     <table>
       <tr>
-        <th>Name</th>
-        <th>Calories</th>
-        <th>Serving Size (g)</th>
+        <th className="pr-4 font-550">Calories</th>
+        <th className="pr-4 font-550">Serving Size (g)</th>
       </tr>
       {nutTableList}
     </table>
