@@ -29,33 +29,3 @@
   width: auto; /* Adjust the height of your images */
   display: none;
 }
-
-.panpan1 {
-  position: absolute;
-  left: 460px;
-  top: 130px;
-  width: auto;
-  height: 130px;
-}
-
-.mochabear1 {
-  position: absolute;
-  left: 920px;
-  top: 130px;
-  width: auto;
-  height: 130px;
-}
-.pusheen1 {
-  position: absolute;
-  left: 750px;
-  top: 110px;
-  width: auto;
-  height: 180px;
-}
-.mochicat1 {
-  position: absolute;
-  left: 700px;
-  top: 40px;
-  width: auto;
-  height: 120px;
-}
