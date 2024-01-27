@@ -6,10 +6,6 @@ import panpan1 from "./images/panpan1.png";
 import mochabear1 from "./images/mochabear1.png";
 import pusheen1 from "./images/pusheen1.png";
 import mochicat1 from "./images/mochicat1.png";
-import cat1 from "./images/cat1.png";
-import cat2 from "./images/cat2.png";
-import cat3 from "./images/cat3.png";
-import cat4 from "./images/cat4.png";
 import "./CenterStage.css";
 
 const CenterStage = (props) => {
