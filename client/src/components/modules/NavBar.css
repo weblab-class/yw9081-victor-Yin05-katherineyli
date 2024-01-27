@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
 
-.NavBar{
+.NavBar {
   float: right;
 }
 
@@ -24,6 +24,10 @@
   border-color: black;
   /* float: right; */
   display: inline-block;
+}
+
+.popupExit:hover{
+  background-color: #ed6b61;
 }
 
 .NavBar-title {

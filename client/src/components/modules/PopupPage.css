@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600;800&family=Josefin+Sans:wght@500&display=swap");
+
+.popupContainer {
+  width: 50%;
+  max-height: 100%;
+  background-color: white;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8c9091;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #76797a;
+}
+
+.row {
+  display: flex;
+  border-radius: 10px;
+}
+
+.column {
+  flex: 25%;
+  text-align: center;
+  padding-top: 25px;
+  /* height: 300px;
+  display: flex;
+  flex-direction: column; */
+}
+
+.column2_left {
+  flex: 7%;
+  padding: 10px;
+  text-align: center;
+}
+
+.column2_right {
+  flex: 80%;
+  padding: 10px;
+}
+
+.image2 {
+  padding-top: 30px;
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: xx-large;
+}
+
+h3 {
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: x-large;
+  padding: 20px;
+}
+
+div {
+  font-family: "Dosis", sans-serif;
+  font-size: medium;
+}
+
+h4 {
+  font-style: italic;
+}
