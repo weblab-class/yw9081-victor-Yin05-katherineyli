@@ -1,9 +1,9 @@
 import React from "react";
 import "./PopupPage.css";
-import cat1 from "./images/cat1.png";
-import cat2 from "./images/cat2.png";
-import cat3 from "./images/cat3.png";
-import cat4 from "./images/cat4.png";
+import newcat1 from "./images/newcat1.png";
+import newcat2 from "./images/newcat2.png";
+import newcat3 from "./images/newcat3.png";
+import newcat4 from "./images/newcat4.png";
 
 import { FaRunning } from "react-icons/fa";
 import { FaUtensils } from "react-icons/fa6";
@@ -27,19 +27,19 @@ const PopupPage = () => {
         <div className="row">
           <div className="column">
             <h4>Arms</h4>
-            <img src={cat1} />
+            <img src={newcat1} />
           </div>
           <div className="column">
             <h4>Legs</h4>
-            <img src={cat2} className="image2" />
+            <img src={newcat2} className="image2" />
           </div>
           <div className="column">
             <h4>Core</h4>
-            <img src={cat3} />
+            <img src={newcat3} />
           </div>
           <div className="column">
             <h4> Cardio</h4>
-            <img src={cat4} />
+            <img src={newcat4} />
           </div>
         </div>
       </div>
