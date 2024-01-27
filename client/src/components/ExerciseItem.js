@@ -18,7 +18,7 @@ const ExerciseItem = (props) => {
     12: "Dec",
   };
   return (
-    <div className="flex items-center justify-between mb-2 border border-gray-400 rounded-lg h-12">
+    <div className="flex items-center justify-between mb-2 border shadow-md bg-white rounded-lg h-12">
       <div className="ml-4 flex">{props.type}</div>
       <div className="flex items-center">
         <div className="mr-4">{`${props.duration} min`}</div>

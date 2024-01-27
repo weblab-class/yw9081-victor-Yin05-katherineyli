@@ -35,7 +35,7 @@ const NewPostInput = (props) => {
   };
 
   return (
-    <div className="relative mt-4 w-1/4 h-72 flex-col flex rounded-lg border border-black">
+    <div className="relative mt-4 w-1/4 h-48 flex-col flex rounded-lg shadow-md bg-white">
       <div class="flex justify-between bg-gray-100 p-4 rounded-t-lg">
         <textarea
           value={value}
@@ -58,7 +58,7 @@ const NewPostInput = (props) => {
           value={selectedDate}
           type="date"
           id="dateInput"
-          className="py-1 px-2 my-2 mx-4 rounded-lg border border-gray-200 w-60"
+          className="py-1 px-2 my-2 mx-4 rounded-lg border hover:bg-gray-100 border-gray-200 w-60"
         ></input>
       </div>
       {/* <button
@@ -72,7 +72,7 @@ const NewPostInput = (props) => {
       <button
         onClick={handleSubmit}
         value="Submit"
-        className="flex absolute right-4 bottom-4 bg-gray-200 rounded-lg px-4 py-2"
+        className="flex absolute bottom-4 hover:bg-gray-300 w-11/12 h-10 justify-center items-center mx-4 bg-gray-200 rounded-lg"
       >
         Add
       </button>

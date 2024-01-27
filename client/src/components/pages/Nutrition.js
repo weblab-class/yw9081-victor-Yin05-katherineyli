@@ -28,7 +28,7 @@ const Nutrition = ({ userId }) => {
     nutritionsList = (
       <div className="w-1/2 flex-col">
         <div className="font-semibold text-lg py-2">Nutrition Log</div>
-        <div className="w-full h-72 overflow-auto">
+        <div className="w-full h-96 overflow-auto">
           {nutritions.map((nutritionsObj) => (
             <SingleNutrition
               content={nutritionsObj.content}

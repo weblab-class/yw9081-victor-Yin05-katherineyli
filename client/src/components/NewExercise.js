@@ -76,8 +76,8 @@ const NewExercise = (props) => {
   };
 
   return (
-    <div className="bg-white relative mt-4 w-1/3 h-72 flex-col flex rounded-lg shadow-md">
-      <div className="flex items-center justify-between bg-gray-100 p-4 h-16 rounded-t-lg text-xl">
+    <div className="bg-white relative mt-4 w-1/4 h-72 flex-col flex rounded-lg shadow-md">
+      <div className="flex items-center justify-between bg-gray-100 p-4 h-14 rounded-t-lg text-xl">
         <div className="flex items-center font-semibold">New Exercise</div>
         {/* <button className="hover:bg-gray-300 px-3 h-8 rounded-lg">Close</button> */}
       </div>
@@ -105,11 +105,11 @@ const NewExercise = (props) => {
         onChange={handleInputDateChange}
         value={inputDate}
         type="date"
-        className="py-2 px-2 my-1 mx-4 rounded-lg border border-gray-200 hover:bg-gray-100"
+        className="py-2 px-2 mt-2 mx-4 rounded-lg border border-gray-200 hover:bg-gray-100"
       ></input>
       <button
         onClick={addExercise}
-        className="flex absolute right-4 bottom-4 bg-gray-200 rounded-lg px-4 py-2"
+        className="flex absolute bottom-4 bg-gray-200 rounded-lg w-11/12 mx-4 h-10 items-center justify-center hover:bg-gray-300"
       >
         Add
       </button>
