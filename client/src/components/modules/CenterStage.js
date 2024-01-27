@@ -2,10 +2,6 @@ import React, { useState, useEffect } from "react";
 import { get, post } from "../../utilities.js";
 import Cat from "./Cat.js";
 import floating_island from "./images/floating_island2.png";
-import panpan1 from "./images/panpan1.png";
-import mochabear1 from "./images/mochabear1.png";
-import pusheen1 from "./images/pusheen1.png";
-import mochicat1 from "./images/mochicat1.png";
 import "./CenterStage.css";
 
 const CenterStage = (props) => {
