@@ -21,20 +21,19 @@ const Cat = (props) => {
   const [hovered, setHovered] = useState(false);
   const handleMouseEnter = () => {
     setHovered(true);
-    console.log("IN");
   };
 
   const handleMouseLeave = () => {
     setHovered(false);
-    console.log("OUT");
   };
 
+  var zoom = 1.25 - (props.yCord / 56) * 0.45;
   let infoBar = null;
-  infoBar = <CatInfo catType={props.catType} />;
+  infoBar = <CatInfo catType={props.catType} name={props.name} />;
   if (props.catType === 1) {
     return (
       <div class="random-image">
-        <div class="cat-container1">
+        <div style={{ position: "relative", width: zoom * 41 + "px", height: "100%" }}>
           {hovered && infoBar}
           <img
             src={hovered ? outlinecat1 : newcat1}
@@ -49,7 +48,7 @@ const Cat = (props) => {
   if (props.catType === 2) {
     return (
       <div class="random-image">
-        <div class="cat-container2">
+        <div style={{ position: "relative", width: zoom * 96 + "px", height: "100%" }}>
           {hovered && infoBar}
           <img
             src={hovered ? outlinecat2 : newcat2}
@@ -64,7 +63,7 @@ const Cat = (props) => {
   if (props.catType === 3) {
     return (
       <div class="random-image">
-        <div class="cat-container3">
+        <div style={{ position: "relative", width: zoom * 66 + "px", height: "100%" }}>
           {hovered && infoBar}
           <img
             src={hovered ? outlinecat3 : newcat3}
@@ -79,7 +78,7 @@ const Cat = (props) => {
   if (props.catType === 4) {
     return (
       <div class="random-image">
-        <div class="cat-container4">
+        <div style={{ position: "relative", width: zoom * 53 + "px", height: "100%" }}>
           {hovered && infoBar}
           <img
             src={hovered ? outlinecat4 : newcat4}

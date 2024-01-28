@@ -10,24 +10,22 @@ import "./CenterStage.css";
  */
 const CatInfo = (props) => {
   var text = "";
-  const nameList = ["viCATor", "CATerine", "yiMEOW", "CATlyn", "PURRcell", "oCATavious", "MEWton"];
-  const name = nameList[Math.floor(nameList.length * Math.random())];
   if (props.catType === 1) {
-    text = "Arms cat:";
+    text = "Arms Cat";
   }
   if (props.catType === 2) {
-    text = "Legs cat:";
+    text = "Legs Cat";
   }
   if (props.catType === 3) {
-    text = "Core cat:";
+    text = "Core Cat";
   }
   if (props.catType === 4) {
-    text = "Cardio cat:";
+    text = "Cardio Cat";
   }
   return (
     <div class="cat-info">
       <p>{text}</p>
-      <p>{name}</p>
+      <p>{props.name}</p>
     </div>
   );
 };
