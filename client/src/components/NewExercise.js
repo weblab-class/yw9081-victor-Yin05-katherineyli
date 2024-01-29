@@ -62,8 +62,14 @@ const NewExercise = (props) => {
       post("/api/exercises", body).then((exercise) => {
         props.setExercises([exercise].concat(props.exercises));
       });
+
+      const multiplier = inputDuration / 60;
       const exerciseScores = exerciseToScores[inputExercise];
-      const { exerciseCore, exerciseArms, exerciseLegs, exerciseCardio } = exerciseScores;
+      let { exerciseCore, exerciseArms, exerciseLegs, exerciseCardio } = exerciseScores;
+      exerciseCore *= multiplier;
+      exerciseArms *= multiplier;
+      exerciseLegs *= multiplier;
+      exerciseCardio *= multiplier;
       const { core, arms, legs, cardio } = props.userScores;
       body = {
         id: props.userId,
@@ -113,7 +119,7 @@ const NewExercise = (props) => {
         <input
           type="number"
           min="0"
-          max="11"
+          max="2"
           className="p-2 ml-3 rounded-lg grow border border-gray-200 hover:bg-gray-100"
           value={inputHours}
           onChange={(e) => setInputHours(e.target.value)}

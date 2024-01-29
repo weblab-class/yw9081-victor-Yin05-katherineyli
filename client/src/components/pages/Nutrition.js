@@ -35,6 +35,9 @@ const Nutrition = (props) => {
               date={nutritionsObj.date}
               calories={nutritionsObj.calories}
               creator_id={nutritionsObj.creator_id}
+              nutritions={nutritions}
+              setNutritions={setNutritions}
+              _id={nutritionsObj._id}
             ></SingleNutrition>
           ))}
         </div>
