@@ -71,7 +71,7 @@ const App = () => {
   };
 
   return (
-    <div className="body h-screen flex flex-col">
+    <div className="body h-screen overflow-none flex flex-col">
       {/* {userScores.core}
       {userScores.arms}
       {userScores.legs}
