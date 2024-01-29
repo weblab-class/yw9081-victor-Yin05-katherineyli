@@ -4,6 +4,13 @@ import Cat from "./Cat.js";
 import floating_island from "./images/floating_island2.png";
 import "./CenterStage.css";
 
+import Popup from "../../../../node_modules/reactjs-popup";
+import Stats from "./Stats.js";
+import bird from "./images/bird.gif";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import PopupPage from "./PopupPage.js"
+
+
 const CenterStage = (props) => {
   const Oval = (x, a) => {
     return Math.sqrt(a * a - (((x - 340) * (x - 340)) / 90000) * a * a);
@@ -84,7 +91,31 @@ const CenterStage = (props) => {
   }
 
   return (
-    <div class="relative h-160 w-160">
+    <div className="relative h-160 w-160">
+      <div className = "absolute">
+        <Popup
+          trigger={
+            // <FaRegQuestionCircle className="w-10 h-10 mr-4 text-white hover:text-gray-200" />
+            <img src = {bird} className = "bird" />
+          }
+          modal
+          nested
+        >
+          {(close) => (
+            <div className="modal grid place-items-center">
+              <div className="content  w-screen h-96 ">
+                <Stats userScores = {props.userScores}/>
+              </div>
+              <div className="pt-3">
+                <IoIosCloseCircleOutline
+                  className="w-9 h-9 text-gray-200 hover:text-red-600"
+                  onClick={() => close()}
+                />
+              </div>
+            </div>
+          )}
+        </Popup>
+      </div>
       <img src={floating_island} className="floatingIsland " />
       {catThing}
     </div>
