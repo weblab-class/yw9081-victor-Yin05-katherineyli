@@ -9,44 +9,6 @@ const NewExercise = (props) => {
   const [inputHours, setInputHours] = useState(0);
   const [inputMin, setInputMin] = useState(0);
 
-  const exerciseToScores = {
-    Badminton: {
-      exerciseCore: 1,
-      exerciseArms: 1,
-      exerciseLegs: 1,
-      exerciseCardio: 2,
-    },
-    Pushups: {
-      exerciseCore: 1,
-      exerciseArms: 4,
-      exerciseLegs: 0,
-      exerciseCardio: 0,
-    },
-    Situps: {
-      exerciseCore: 4,
-      exerciseArms: 0,
-      exerciseLegs: 0,
-      exerciseCardio: 1,
-    },
-    Run: {
-      exerciseCore: 1,
-      exerciseArms: 0,
-      exerciseLegs: 1,
-      exerciseCardio: 3,
-    },
-    Squats: {
-      exerciseCore: 1,
-      exerciseArms: 0,
-      exerciseLegs: 4,
-      exerciseCardio: 0,
-    },
-    "Jumping jacks": {
-      exerciseCore: 0,
-      exerciseArms: 0,
-      exerciseLegs: 0,
-      exerciseCardio: 5,
-    },
-  };
 
   const addExercise = () => {
     const inputDuration = inputHours * 60 + inputMin * 1;
@@ -64,7 +26,7 @@ const NewExercise = (props) => {
       });
 
       const multiplier = inputDuration / 60;
-      const exerciseScores = exerciseToScores[inputExercise];
+      const exerciseScores = props.exerciseToScores[inputExercise];
       let { exerciseCore, exerciseArms, exerciseLegs, exerciseCardio } = exerciseScores;
       exerciseCore *= multiplier;
       exerciseArms *= multiplier;
@@ -81,7 +43,6 @@ const NewExercise = (props) => {
           cardio: exerciseCardio + cardio,
         },
       };
-      console.log(body["newScores"]);
       post("/api/scores", body).then((theIdScore) => {
         props.setUserScores(theIdScore.scores);
       });

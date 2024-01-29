@@ -16,6 +16,10 @@ const ExerciseLog = (props) => {
             _id={exercise._id}
             setExercises={props.setExercises}
             exercises={props.exercises}
+            exerciseToScores={props.exerciseToScores}
+            userScores={props.userScores}
+            setUserScores={props.setUserScores}
+            userId={props.userId}
           />
         ))}
       </div>
