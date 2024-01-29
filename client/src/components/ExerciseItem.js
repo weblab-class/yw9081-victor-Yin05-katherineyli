@@ -22,14 +22,11 @@ const ExerciseItem = (props) => {
 
   const deleteExercise = (id) => {
     const query = { id: id };
-    console.log(props.exercises.filter((exercise) => exercise._id !== id));
-    get("/api/delete", query).then(() => {
-      console.log("get finished");
+    get("/api/deleteExercise", query).then(() => {
       props.setExercises(props.exercises.filter((exercise) => exercise._id !== id));
     });
   };
-  console.log("PROP EXERCISES IS ");
-  console.log(props.exercises);
+
   return (
     <div className="flex items-center justify-between mb-2 border shadow-md bg-white rounded-lg h-12">
       <div className="ml-4 flex font-bold">{props.type}</div>

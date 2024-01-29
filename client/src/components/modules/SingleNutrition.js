@@ -1,6 +1,6 @@
 import React from "react";
 import NutTable from "./NutTable";
-
+import { FaTrashAlt } from "react-icons/fa";
 import { get } from "../../utilities";
 
 /**
@@ -27,12 +27,29 @@ const SingleNutrition = (props) => {
     11: "Nov",
     12: "Dec",
   };
-  console.log("In single nutrition the type of date is " + typeof props.date);
+
+  const deleteNutrition = (id) => {
+    const query = { id: id };
+    get("/api/deleteNutrition", query).then(() => {
+      props.setNutritions(props.nutritions.filter((nutrition) => nutrition._id !== id));
+    });
+  };
+
+  // console.log(props.nutritions);
+  console.log(props._id + " nutrition id");
   return (
-    <div className="mb-4 border shadow-md bg-white w-full rounded-lg py-2 px-4">
+    <div className="mb-4 border shadow-md bg-white w-full rounded-lg py-2 px-3 relative">
       <div className="flex justify-between">
         <p className="font-bold text-lg">{props.content}</p>
-        <p>{`${numToMonth[props.date.slice(5, 7)]} ${props.date.slice(8, 10)}`}</p>
+        <div className="flex items-center">
+          <p className="mr-2">{`${numToMonth[props.date.slice(5, 7)]} ${props.date.slice(
+            8,
+            10
+          )}`}</p>
+          <button onClick={() => deleteNutrition(props._id)}>
+            <FaTrashAlt />
+          </button>
+        </div>
       </div>
       {/* <p>Date: {props.date}</p>
       <p>Food logged: {props.content}</p> */}
