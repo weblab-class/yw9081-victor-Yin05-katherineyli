@@ -5,22 +5,18 @@ import { get } from "../../utilities";
 //import { has } from "core-js/core/dict";
 
 const Exercises = (props) => {
-  const [showNewExercise, setShowNewExercise] = useState(false);
   const [exercises, setExercises] = useState([]);
 
-  useEffect(() => {
+  const getExercises = () => {
     const query = { id: props.userId };
     if (props.userId) {
-      get("/api/exercises", query).then((exercisesObj) => {
-        let reversedExercises = exercisesObj.reverse();
-        setExercises(reversedExercises);
-      });
+      get("/api/exercises", query).then((exercisesObj) => setExercises(exercisesObj));
     }
-  }, [props.userId]);
-
-  const toggleNewExercise = () => {
-    setShowNewExercise(true);
   };
+
+  useEffect(() => {
+    getExercises();
+  }, [props.userId]);
 
   if (!props.userId) {
     return <div>Log in before using Beast Mode Exercises</div>;
@@ -29,7 +25,9 @@ const Exercises = (props) => {
   if (exercises.length === 0) {
     return (
       <div className="flex-col">
-        <div className="w-screen flex justify-center h-16 text-3xl font-semibold items-center">Exercises</div>
+        <div className="w-screen flex justify-center h-16 text-3xl font-semibold items-center">
+          Exercises
+        </div>
         <div className="flex justify-center">
           <NewExercise
             userScores={props.userScores}
@@ -45,7 +43,9 @@ const Exercises = (props) => {
   }
   return (
     <div className="flex-col grow">
-      <div className="w-screen flex justify-center h-16 text-3xl font-semibold items-center">Exercises</div>
+      <div className="w-screen flex justify-center h-16 text-3xl font-semibold items-center">
+        Exercises
+      </div>
       <div className="flex justify-center">
         {props.userId && (
           <NewExercise
@@ -54,18 +54,13 @@ const Exercises = (props) => {
             exercises={exercises}
             setExercises={setExercises}
             userId={props.userId}
+            getExercises={getExercises}
           />
         )}
       </div>
       <div className="flex grow justify-center mt-2 overflow-auto">
         <ExerciseLog exercises={exercises} setExercises={setExercises} />
       </div>
-      {/* <button onClick={toggleNewExercise} className="hover:bg-gray-200">
-        Add Exercise
-      </button> */}
-      {/* <div>{showNewExercise && <NewExercise />}</div> */}
-      {/* <NewExercise exercises={exercises} setExercises={setExercises} /> */}
-      {/* <ExerciseLog exercises={exercises} setExercises={setExercises} /> */}
     </div>
   );
 };

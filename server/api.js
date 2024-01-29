@@ -67,11 +67,14 @@ router.post("/scores", (req, res) => {
   }
 });
 
+//issue: the sorting doesn't happen until after refreshing the exercises page
 router.get("/exercises", (req, res) => {
-  Exercise.find({ creator_id: req.query.id }).then((exercises) => res.send(exercises));
+  Exercise.find({ creator_id: req.query.id })
+    .sort({ date: -1 })
+    .then((exercises) => res.send(exercises));
 });
 
-router.post("/exercise", (req, res) => {
+router.post("/exercises", (req, res) => {
   const newExercise = new Exercise({
     creator_id: req.body.id,
     type: req.body.type,
@@ -97,6 +100,12 @@ router.post("/nutrition", auth.ensureLoggedIn, (req, res) => {
   console.log(req.body.date);
 
   newNutrition.save().then((nutrition) => res.send(nutrition));
+});
+
+//issue: deleting the exercise doesn't render until refreshing the exercises page
+//delete exercise
+router.get("/exercise", (req, res) => {
+  Exercise.deleteOne({ _id: req.query.id }).then((exercise) => console.log("Deleted"));
 });
 
 // anything else falls to this "not found" case
