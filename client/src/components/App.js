@@ -60,7 +60,6 @@ const App = () => {
     console.log(`Logged in as ${decodedCredential.name}`);
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
-      // console.log(user._id);
       return user;
     });
   };
@@ -72,10 +71,6 @@ const App = () => {
 
   return (
     <div className="body overflow-none h-screen flex flex-col">
-      {/* {userScores.core}
-      {userScores.arms}
-      {userScores.legs}
-      {userScores.cardio} */}
       <NavBar
         className="u-inlineBlock float-right"
         userId={userId}
