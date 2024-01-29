@@ -104,8 +104,12 @@ router.post("/nutrition", auth.ensureLoggedIn, (req, res) => {
 
 //issue: deleting the exercise doesn't render until refreshing the exercises page
 //delete exercise
-router.get("/delete", (req, res) => {
-  Exercise.deleteOne({ _id: req.query.id }).then((exercise) => console.log("Deleted"));
+router.get("/deleteExercise", (req, res) => {
+  Exercise.deleteOne({ _id: req.query.id }).then((exercise) => res.send(exercise));
+});
+
+router.get("/deleteNutrition", (req, res) => {
+  Nutrition.deleteOne({ _id: req.query.id }).then((nutrition) => res.send(nutrition));
 });
 
 // anything else falls to this "not found" case
