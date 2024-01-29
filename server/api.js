@@ -106,10 +106,7 @@ router.post("/nutrition", auth.ensureLoggedIn, (req, res) => {
 //delete exercise
 router.get("/deleteExercise", (req, res) => {
   Exercise.deleteOne({ _id: req.query.id }).then((exercise) => res.send(exercise));
-});
 
-router.get("/deleteNutrition", (req, res) => {
-  Nutrition.deleteOne({ _id: req.query.id }).then((nutrition) => res.send(nutrition));
 });
 
 // anything else falls to this "not found" case

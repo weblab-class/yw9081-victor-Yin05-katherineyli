@@ -113,6 +113,23 @@ const NewNutrition = (props) => {
       console.log("right before posting the type of date is " + typeof selectedDate);
       post("/api/nutrition", body).then((nutrition) => {
         props.addNewNutrition(nutrition);
+        var totalProtein = 0;
+        for (let i = 0; i < nutrition.calories.length; i++) {
+          totalProtein += nutrition.calories[i].protein_g;
+        }
+        const body = {
+          id: props.userId,
+          theRequest: 1,
+          newScores: {
+            core: props.userScores.core + totalProtein / 80,
+            arms: props.userScores.arms + totalProtein / 80,
+            legs: props.userScores.legs + totalProtein / 80,
+            cardio: props.userScores.cardio + totalProtein / 80,
+          },
+        };
+        post("/api/scores", body).then((theIdScore) => {
+          props.setUserScores(theIdScore.scores);
+        });
       });
     });
   };
