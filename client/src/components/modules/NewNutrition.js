@@ -134,7 +134,7 @@ const NewNutrition = (props) => {
     });
   };
 
-  return <NewPostInput defaultText="New Nutrition" onSubmit={addNutrition} />;
+  return <NewPostInput defaultText="200 grams of chicken" onSubmit={addNutrition} />;
 };
 
 export { NewNutrition, NewPostInput };

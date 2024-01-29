@@ -6,7 +6,7 @@ import ExerciseItem from "./ExerciseItem";
 const ExerciseLog = (props) => {
   return (
     <div className="w-3/4 flex-col">
-      <div className="font-semibold text-lg py-2">Exercise Log</div>
+      <div className="font-semibold text-lg py-2 text-white">Exercise History</div>
       <div className="w-full h-72 overflow-auto">
         {props.exercises.map((exercise) => (
           <ExerciseItem
