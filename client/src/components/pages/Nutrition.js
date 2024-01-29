@@ -4,19 +4,19 @@ import { NewNutrition } from "../modules/NewNutrition.js";
 
 import { get } from "../../utilities";
 
-const Nutrition = ({ userId }) => {
+const Nutrition = (props) => {
   const [nutritions, setNutritions] = useState([]);
 
   useEffect(() => {
     document.title = "Nutrition Log";
-    const query = { id: userId };
-    if (userId) {
+    const query = { id: props.userId };
+    if (props.userId) {
       get("/api/nutrition", query).then((nutritionObj) => {
         let reversedNutritionObj = nutritionObj.reverse();
         setNutritions(reversedNutritionObj);
       });
     }
-  }, [userId]);
+  }, [props.userId]);
 
   const addNewNutrition = (nutritionObj) => {
     setNutritions([nutritionObj].concat(nutritions));
@@ -43,7 +43,7 @@ const Nutrition = ({ userId }) => {
   } else {
     nutritionsList = <div>No nutrition logs!</div>;
   }
-  if (!userId) {
+  if (!props.userId) {
     return <div>Log in before using Beast Mode Nutrition</div>;
   }
 
@@ -53,9 +53,18 @@ const Nutrition = ({ userId }) => {
     //   {nutritionsList}
     // </div>
     <div className="flex-col">
-      <div className="w-screen flex justify-center h-16 text-3xl font-semibold items-center">Nutrition</div>
+      <div className="w-screen flex justify-center h-16 text-3xl font-semibold items-center">
+        Nutrition
+      </div>
       <div className="flex justify-center">
-        {userId && <NewNutrition addNewNutrition={addNewNutrition} userId={userId} />}
+        {props.userId && (
+          <NewNutrition
+            addNewNutrition={addNewNutrition}
+            userId={props.userId}
+            userScores={props.userScores}
+            setUserScores={props.setUserScores}
+          />
+        )}
       </div>
       <div className="flex grow justify-center mt-2 overflow-auto">{nutritionsList}</div>
     </div>

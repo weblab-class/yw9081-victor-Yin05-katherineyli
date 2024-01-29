@@ -90,7 +90,12 @@ const App = () => {
             <Exercises userId={userId} userScores={userScores} setUserScores={setUserScores} />
           }
         ></Route>
-        <Route path="/nutrition" element={<Nutrition userId={userId} />}></Route>
+        <Route
+          path="/nutrition"
+          element={
+            <Nutrition userId={userId} userScores={userScores} setUserScores={setUserScores} />
+          }
+        ></Route>
       </Routes>
     </div>
   );

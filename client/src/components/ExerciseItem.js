@@ -22,12 +22,14 @@ const ExerciseItem = (props) => {
 
   const deleteExercise = (id) => {
     const query = { id: id };
-    console.log(props.exercises.filter((exercise) => exercise._id !== id));
-    get("/api/delete", query).then(() => {
+    console.log("DELETE");
+    //console.log(props.exercises.filter((exercise) => exercise._id !== id));
+    get("/api/deleteExercise", query).then(() => {
       console.log("get finished");
       props.setExercises(props.exercises.filter((exercise) => exercise._id !== id));
     });
   };
+
   console.log("PROP EXERCISES IS ");
   console.log(props.exercises);
   return (
