@@ -7,6 +7,7 @@ import newcat4 from "./images/newcat4.png";
 
 import { FaRunning } from "react-icons/fa";
 import { FaUtensils } from "react-icons/fa6";
+import bird2 from "./images/bird.gif";
 
 // Note to self: for some reason the headings aren't working, but can individually style in css file ig
 
@@ -27,19 +28,19 @@ const PopupPage = () => {
         <div className="row">
           <div className="column">
             <h4>Arms</h4>
-            <img src={newcat1} />
+            <img src={newcat1} className = "image1"/>
           </div>
           <div className="column">
             <h4>Legs</h4>
-            <img src={newcat2} className="image2" />
+            <img src={newcat2} className="image1" />
           </div>
           <div className="column">
             <h4>Core</h4>
-            <img src={newcat3} />
+            <img src={newcat3} className = "image1" />
           </div>
           <div className="column">
             <h4> Cardio</h4>
-            <img src={newcat4} />
+            <img src={newcat4} className = "image1"/>
           </div>
         </div>
       </div>
@@ -64,6 +65,17 @@ const PopupPage = () => {
           <p>
             Log your meals to generate cats as well! Eating high-protein foods will increase the
             number of cats across all categories.
+          </p>
+        </div>
+      </div>
+      <div className="row">
+        <div className="column2_left">
+          <img src={bird2}  className="w-12"  />
+        </div>
+        <div className="column2_right ">
+          <p>
+            Click on Dave the bird to see how many cats you've collected for each muscle group. Dave
+            is friendly and all-knowing---the perfect resource when you don't feel like counting!
           </p>
         </div>
       </div>

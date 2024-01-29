@@ -73,7 +73,7 @@ const NavBar = (props) => {
               </div>
               <div className="pt-3">
                 <IoIosCloseCircleOutline
-                  className="w-9 h-9 text-white hover:text-red-600"
+                  className="w-9 h-9 text-gray-200 hover:text-red-600"
                   onClick={() => close()}
                 />
               </div>
@@ -81,7 +81,7 @@ const NavBar = (props) => {
           )}
         </Popup>
       </div>
-      {helpInst && <div className="absolute right-40 mr-3.5 top-14 text-xs w-12 h-12">Help</div>}
+      {helpInst && <div className="absolute right-40 mr-3.5 top-14 text-xs w-12 h-12 text-white">Help</div>}
       <a href="/">
         <IoHome
           className="w-10 h-10 mr-4 text-white hover:text-gray-200"
@@ -89,7 +89,7 @@ const NavBar = (props) => {
           onMouseLeave={() => setHomeInst(false)}
         />
       </a>
-      {homeInst && <div className="absolute right-28 mr-2.5 top-14 text-xs w-12 h-12">Home</div>}
+      {homeInst && <div className="absolute right-28 mr-2.5 top-14 text-xs w-12 h-12 text-white">Home</div>}
       <a href="/exercises">
         <FaRunning
           className="w-10 h-10 mr-4 text-white hover:text-gray-200"
@@ -98,7 +98,7 @@ const NavBar = (props) => {
         />
       </a>
       {exerciseInst && (
-        <div className="absolute right-16 mr-3 top-14 text-xs w-12 h-12">Exercises</div>
+        <div className="absolute right-16 mr-3 top-14 text-xs w-12 h-12 text-white">Exercises</div>
       )}
       <a href="/nutrition">
         <FaUtensils
@@ -107,7 +107,7 @@ const NavBar = (props) => {
           onMouseLeave={() => setNutritionInst(false)}
         />
       </a>
-      {nutritionInst && <div className="absolute right-4 text-xs top-14 w-12 h-12">Nutrition</div>}
+      {nutritionInst && <div className="absolute right-4 text-xs top-14 w-12 h-12 text-white">Nutrition</div>}
       <div className="NavBar-linkContainer flex py-3 mt-3 items-center"></div>
       {/* <nav className="NavBar-container u-inlineBlock">
 

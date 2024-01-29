@@ -2,6 +2,12 @@
   position: relative;
 }
 
+.bird{
+  width:90px;
+  height: auto;
+  margin-left: 30%;
+}
+
 .floatingIsland {
   width: 760px;
   height: 460px;
