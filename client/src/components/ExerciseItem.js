@@ -34,7 +34,7 @@ const ExerciseItem = (props) => {
     <div className="flex items-center justify-between mb-2 border shadow-md bg-white rounded-lg h-12">
       <div className="ml-4 flex font-bold">{props.type}</div>
       <div className="flex items-center">
-        <div className="mr-4">{`${props.duration} min`}</div>
+        <div className="mr-4">{`${Math.floor(props.duration/60)} hr ${props.duration % 60} min`}</div>
         <div className="mr-4">
           {`${numToMonth[props.date.slice(5, 7)]} ${props.date.slice(8, 10)}`}
         </div>
