@@ -10,7 +10,9 @@ const Exercises = (props) => {
   const getExercises = () => {
     const query = { id: props.userId };
     if (props.userId) {
-      get("/api/exercises", query).then((exercisesObj) => setExercises(exercisesObj));
+      get("/api/exercises", query).then((exercisesObj) => {
+        setExercises(exercisesObj);
+      });
     }
   };
 
