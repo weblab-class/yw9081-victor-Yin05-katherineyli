@@ -109,6 +109,10 @@ router.get("/deleteExercise", (req, res) => {
 
 });
 
+router.get("/deleteNutrition", (req, res) => {
+  Nutrition.deleteOne({ _id: req.query.id }).then((nutrition) => res.send(nutrition));
+});
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
