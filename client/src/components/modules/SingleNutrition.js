@@ -52,9 +52,6 @@ const SingleNutrition = (props) => {
       props.setUserScores(theIdScore.scores);
     });
   };
-
-  // console.log(props.nutritions);
-  console.log(props._id + " nutrition id");
   return (
     <div className="mb-4 border shadow-md bg-white w-full rounded-lg py-2 px-3 relative">
       <div className="flex justify-between">

@@ -20,7 +20,7 @@ const Skeleton = ({ userId, handleLogin, handleLogout }) => {
           Logout
         </button>
       ) : (
-        <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
+        <GoogleLogin onSuccess={handleLogin} onError={(err) => console.error(err)} />
       )}
       <h1 className="text-red-500">Good luck on your project :)</h1>
       <h2> What you need to change in this skeleton</h2>

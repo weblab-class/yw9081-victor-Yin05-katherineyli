@@ -36,7 +36,6 @@ const Cat = (props) => {
   document.addEventListener("touchstart", setInteracted);
 
   useEffect(() => {
-    console.log("CLICKED");
     const imageElement = document.getElementById("imageElement" + props.index);
     const sounds = [
       "1audioElement" + props.index,
@@ -51,7 +50,6 @@ const Cat = (props) => {
       // Select a random sound
       const randomIndex = Math.floor(Math.random() * sounds.length);
       const randomSound = document.getElementById(sounds[randomIndex]);
-      console.log("MUSIC!");
       // Play the selected sound
       if (randomSound && hasInteracted) {
         randomSound.play();
