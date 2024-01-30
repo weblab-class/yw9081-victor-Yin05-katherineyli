@@ -8,8 +8,8 @@
 
 .switchContainer {
   position: absolute;
-  top: 230px;
-  left: 50%;
+  top: 90%;
+  left: 96%;
   width: auto;
   height: auto;
 }
@@ -55,11 +55,11 @@
 }
 
 input:checked + .slider {
-  background-color: #ffda76;
+  background-color: #d4e32b;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #ffda76;
+  box-shadow: 0 0 1px #d4e32b;
 }
 
 input:checked + .slider:before {

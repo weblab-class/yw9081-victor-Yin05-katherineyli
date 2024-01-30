@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Title from "../modules/Title.js";
 import { get, post } from "../../utilities.js";
 import CenterStage from "../modules/CenterStage.js";
+import { FaCat } from "react-icons/fa";
+import { AiFillSound } from "react-icons/ai";
+
 import "./Home.css";
 
 function Home(props) {
@@ -29,7 +32,10 @@ function Home(props) {
         <CenterStage userId={props.userId} userScores={props.userScores} />
       </div>
       <div class="switchContainer">
-        <p style={{ color: "white" }}>meow?</p>
+        <div className = "text-white flex pb-2 pl-1">
+          <FaCat/>
+          <AiFillSound />
+        </div>
         <label class="switch">
           <input type="checkbox" onClick={handleToggle} />
           <span class="slider round"></span>
