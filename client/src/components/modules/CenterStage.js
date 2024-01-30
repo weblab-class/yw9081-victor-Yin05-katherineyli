@@ -9,8 +9,7 @@ import Popup from "../../../../node_modules/reactjs-popup";
 import Stats from "./Stats.js";
 import bird from "./images/bird.gif";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import PopupPage from "./PopupPage.js"
-
+import PopupPage from "./PopupPage.js";
 
 const CenterStage = (props) => {
   const [randomPositions, setRandomPositions] = useState(Array(100).fill({ x: 0, y: 0 }));
@@ -61,16 +60,16 @@ const CenterStage = (props) => {
   const nameList = ["viCATor", "CATerine", "yiMEOW", "CATlyn", "PURRcell", "oCATavious", "MEWton"];
   shuffleArray(nameList);
   if (props.userScores && props.userId) {
-    for (var i = 0; i <= props.userScores.arms / 20; i++) {
+    for (var i = -1; i <= props.userScores.arms / 20; i++) {
       catTypes.push(1);
     }
-    for (var i = 0; i <= props.userScores.legs / 20; i++) {
+    for (var i = -1; i <= props.userScores.legs / 20; i++) {
       catTypes.push(2);
     }
-    for (var i = 0; i <= props.userScores.core / 20; i++) {
+    for (var i = -1; i <= props.userScores.core / 20; i++) {
       catTypes.push(3);
     }
-    for (var i = 0; i <= props.userScores.cardio / 20; i++) {
+    for (var i = -1; i <= props.userScores.cardio / 20; i++) {
       catTypes.push(4);
     }
     shuffleArray(catTypes);
@@ -93,11 +92,11 @@ const CenterStage = (props) => {
 
   return (
     <div className="relative h-160 w-160">
-      <div className = "absolute">
+      <div className="absolute">
         <Popup
           trigger={
             // <FaRegQuestionCircle className="w-10 h-10 mr-4 text-white hover:text-gray-200" />
-            <img src = {bird} className = "bird" />
+            <img src={bird} className="bird" />
           }
           modal
           nested
@@ -105,7 +104,7 @@ const CenterStage = (props) => {
           {(close) => (
             <div className="modal grid place-items-center">
               <div className="content  w-screen h-96 ">
-                <Stats userScores = {props.userScores}/>
+                <Stats userScores={props.userScores} />
               </div>
               <div className="pt-3">
                 <IoIosCloseCircleOutline
