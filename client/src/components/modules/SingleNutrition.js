@@ -1,7 +1,7 @@
 import React from "react";
 import NutTable from "./NutTable";
 import { FaTrashAlt } from "react-icons/fa";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 /**
  * Nutrition is a component that renders nutrition log, calories info, and date of a nutrition input
@@ -32,6 +32,24 @@ const SingleNutrition = (props) => {
     const query = { id: id };
     get("/api/deleteNutrition", query).then(() => {
       props.setNutritions(props.nutritions.filter((nutrition) => nutrition._id !== id));
+    });
+    var totalProtein = 0;
+    for (let i = 0; i < props.calories.length; i++) {
+      totalProtein += props.calories[i].protein_g;
+    }
+    const { core, arms, legs, cardio } = props.userScores;
+    const body = {
+      id: props.userId,
+      theRequest: 1,
+      newScores: {
+        core: Math.max(core - totalProtein / 80, 0),
+        arms: Math.max(arms - totalProtein / 80, 0),
+        legs: Math.max(legs - totalProtein / 80, 0),
+        cardio: Math.max(cardio - totalProtein / 80, 0),
+      },
+    };
+    post("/api/scores", body).then((theIdScore) => {
+      props.setUserScores(theIdScore.scores);
     });
   };
 

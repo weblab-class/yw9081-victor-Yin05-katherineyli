@@ -39,19 +39,24 @@ const Nutrition = (props) => {
               nutritions={nutritions}
               setNutritions={setNutritions}
               _id={nutritionsObj._id}
+              userScores={props.userScores}
+              setUserScores={props.setUserScores}
+              userId={props.userId}
             ></SingleNutrition>
           ))}
         </div>
       </div>
     );
   } else {
-    nutritionsList = <div className = "text-white">No nutrition logs!</div>;
+    nutritionsList = <div className="text-white">No nutrition logs!</div>;
   }
   if (!props.userId) {
     return (
-      <div className = "h-screen flex items-center justify-center">
-        <img src={revolvingCat} className = "w-20 h-16"/>
-        <div className = "absolute pt-24 text-white">Please log in to access your nutrition page...</div>
+      <div className="h-screen flex items-center justify-center">
+        <img src={revolvingCat} className="w-20 h-16" />
+        <div className="absolute pt-24 text-white">
+          Please log in to access your nutrition page...
+        </div>
       </div>
     );
   }
