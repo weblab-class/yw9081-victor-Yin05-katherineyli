@@ -110,7 +110,6 @@ const NewNutrition = (props) => {
         calories: data.items,
         date: selectedDate,
       };
-      console.log("right before posting the type of date is " + typeof selectedDate);
       post("/api/nutrition", body).then((nutrition) => {
         props.addNewNutrition(nutrition);
         var totalProtein = 0;

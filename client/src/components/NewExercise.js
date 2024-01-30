@@ -12,7 +12,6 @@ const NewExercise = (props) => {
 
   const addExercise = () => {
     const inputDuration = inputHours * 60 + inputMin * 1;
-    console.log(inputExercise);
     if (inputExercise !== "" && inputDuration !== 0 && inputDate !== "") {
       var body = {
         id: props.userId,
@@ -20,7 +19,6 @@ const NewExercise = (props) => {
         duration: inputDuration,
         date: inputDate,
       };
-      console.log(body);
       post("/api/exercises", body).then((exercise) => {
         props.setExercises([exercise].concat(props.exercises));
       });

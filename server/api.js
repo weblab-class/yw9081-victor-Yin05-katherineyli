@@ -97,7 +97,6 @@ router.post("/nutrition", auth.ensureLoggedIn, (req, res) => {
     date: req.body.date,
     calories: req.body.calories,
   });
-  console.log(req.body.date);
 
   newNutrition.save().then((nutrition) => res.send(nutrition));
 });
@@ -115,7 +114,6 @@ router.get("/deleteNutrition", (req, res) => {
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
-  console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });
 });
 

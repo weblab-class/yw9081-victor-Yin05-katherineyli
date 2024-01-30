@@ -17,7 +17,7 @@ const Login = ({ userId, handleLogin, handleLogout }) => {
           Logout
         </button>
       ) : (
-        <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
+        <GoogleLogin onSuccess={handleLogin} onError={(err) => console.error(err)} />
       )}
     </GoogleOAuthProvider>
   );

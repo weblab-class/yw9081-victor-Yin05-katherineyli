@@ -49,7 +49,7 @@ const NavBar = (props) => {
               </p>
             </button>
           ) : (
-            <GoogleLogin onSuccess={props.handleLogin} onError={(err) => console.log(err)} />
+            <GoogleLogin onSuccess={props.handleLogin} onError={(err) => console.error(err)} />
           )}
         </GoogleOAuthProvider>
       </div>

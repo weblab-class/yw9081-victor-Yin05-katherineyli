@@ -92,8 +92,7 @@ app.use((err, req, res, next) => {
   const status = err.status || 500;
   if (status === 500) {
     // 500 means Internal Server Error
-    console.log("The server errored when processing a request!");
-    console.log(err);
+    console.error(err);
   }
 
   res.status(status);
