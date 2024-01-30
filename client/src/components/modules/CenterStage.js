@@ -13,7 +13,7 @@ import PopupPage from "./PopupPage.js";
 import Bird from "../modules/Bird.js";
 
 const CenterStage = (props) => {
-  const [randomPositions, setRandomPositions] = useState(Array(100).fill({ x: 0, y: 0 }));
+  const [randomPositions, setRandomPositions] = useState(Array(500).fill({ x: 0, y: 0 }));
   var catThing = null;
 
   const Oval = (x, a) => {
@@ -61,16 +61,16 @@ const CenterStage = (props) => {
   const nameList = ["viCATor", "CATerine", "yiMEOW", "CATlyn", "PURRcell", "oCATavious", "MEWton"];
   shuffleArray(nameList);
   if (props.userScores && props.userId) {
-    for (var i = 0; i <= props.userScores.arms / 20; i++) {
+    for (var i = 0; i <= Math.min(props.userScores.arms / 20, 100); i++) {
       catTypes.push(1);
     }
-    for (var i = 0; i <= props.userScores.legs / 20; i++) {
+    for (var i = 0; i <= Math.min(props.userScores.legs / 20, 100); i++) {
       catTypes.push(2);
     }
-    for (var i = 0; i <= props.userScores.core / 20; i++) {
+    for (var i = 0; i <= Math.min(props.userScores.core / 20, 100); i++) {
       catTypes.push(3);
     }
-    for (var i = 0; i <= props.userScores.cardio / 20; i++) {
+    for (var i = 0; i <= Math.min(props.userScores.cardio / 20, 100); i++) {
       catTypes.push(4);
     }
     shuffleArray(catTypes);
