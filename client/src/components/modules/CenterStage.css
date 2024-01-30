@@ -2,8 +2,8 @@
   position: relative;
 }
 
-.bird{
-  width:90px;
+.bird {
+  width: 90px;
   height: auto;
   margin-left: 30%;
 }
@@ -54,4 +54,8 @@
   border: 1.5px solid black;
   border-radius: 10px;
   background-color: white;
+}
+
+.audio-player {
+  display: none;
 }
