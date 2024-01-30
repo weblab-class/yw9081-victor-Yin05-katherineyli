@@ -9,9 +9,8 @@ import Popup from "../../../../node_modules/reactjs-popup";
 import Stats from "./Stats.js";
 import bird from "./images/bird.gif";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import PopupPage from "./PopupPage.js"
-import Bird from "../modules/Bird.js"
-
+import PopupPage from "./PopupPage.js";
+import Bird from "../modules/Bird.js";
 
 const CenterStage = (props) => {
   const [randomPositions, setRandomPositions] = useState(Array(100).fill({ x: 0, y: 0 }));
@@ -62,16 +61,16 @@ const CenterStage = (props) => {
   const nameList = ["viCATor", "CATerine", "yiMEOW", "CATlyn", "PURRcell", "oCATavious", "MEWton"];
   shuffleArray(nameList);
   if (props.userScores && props.userId) {
-    for (var i = -1; i <= props.userScores.arms / 20; i++) {
+    for (var i = 0; i <= props.userScores.arms / 20; i++) {
       catTypes.push(1);
     }
-    for (var i = -1; i <= props.userScores.legs / 20; i++) {
+    for (var i = 0; i <= props.userScores.legs / 20; i++) {
       catTypes.push(2);
     }
-    for (var i = -1; i <= props.userScores.core / 20; i++) {
+    for (var i = 0; i <= props.userScores.core / 20; i++) {
       catTypes.push(3);
     }
-    for (var i = -1; i <= props.userScores.cardio / 20; i++) {
+    for (var i = 0; i <= props.userScores.cardio / 20; i++) {
       catTypes.push(4);
     }
     shuffleArray(catTypes);
@@ -99,9 +98,9 @@ const CenterStage = (props) => {
           trigger={
             // <FaRegQuestionCircle className="w-10 h-10 mr-4 text-white hover:text-gray-200" />
             // <img src = {bird} className = "bird" />
-            <div><Bird /> </div>
-
-
+            <div>
+              <Bird />{" "}
+            </div>
           }
           modal
           nested
