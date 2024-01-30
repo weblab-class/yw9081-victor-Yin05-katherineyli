@@ -35,20 +35,32 @@ const Cat = (props) => {
   document.addEventListener("keydown", setInteracted);
   document.addEventListener("touchstart", setInteracted);
 
-  const handleMouseEnter = () => {
-    setHovered(true);
+  useEffect(() => {
+    console.log("CLICKED");
     const imageElement = document.getElementById("imageElement" + props.index);
+    const sounds = [
+      "1audioElement" + props.index,
+      "2audioElement" + props.index,
+      "3audioElement" + props.index,
+      "4audioElement" + props.index,
+      "5audioElement" + props.index,
+      "6audioElement" + props.index,
+    ];
 
-    // Add event listener for click event on the play button
     imageElement.addEventListener("mouseenter", function () {
-      // Play the audio when the button is clicked
-      if (hasInteracted) {
-        var audioElement = document.getElementById(
-          Math.floor(1 + Math.random() * 6) + "audioElement" + props.index
-        );
-        audioElement.play();
+      // Select a random sound
+      const randomIndex = Math.floor(Math.random() * sounds.length);
+      const randomSound = document.getElementById(sounds[randomIndex]);
+      console.log("MUSIC!");
+      // Play the selected sound
+      if (randomSound && hasInteracted) {
+        randomSound.play();
       }
     });
+  }, []);
+
+  const handleMouseEnter = () => {
+    setHovered(true);
   };
 
   const handleMouseLeave = () => {
