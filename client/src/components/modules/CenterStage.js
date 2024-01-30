@@ -3,13 +3,15 @@ import { get, post } from "../../utilities.js";
 import Cat from "./Cat.js";
 import floating_island from "./images/floating_island2.png";
 import "./CenterStage.css";
+import { init } from "../../../../server/models/user.js";
 
 const CenterStage = (props) => {
+  const [randomPositions, setRandomPositions] = useState(Array(100).fill({ x: 0, y: 0 }));
+  var catThing = null;
+
   const Oval = (x, a) => {
     return Math.sqrt(a * a - (((x - 340) * (x - 340)) / 90000) * a * a);
   };
-  const [randomPositions, setRandomPositions] = useState(Array(100).fill({ x: 0, y: 0 }));
-
   useEffect(() => {
     if (props.userId && props.userScores) {
       var images = document.querySelectorAll(".random-image");
@@ -38,6 +40,7 @@ const CenterStage = (props) => {
       });
     }
   }, [props.userScores]);
+
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -46,12 +49,10 @@ const CenterStage = (props) => {
       array[j] = temp;
     }
   }
-  let catList = [];
-  let catTypes = [];
+  const catList = [];
+  const catTypes = [];
   const nameList = ["viCATor", "CATerine", "yiMEOW", "CATlyn", "PURRcell", "oCATavious", "MEWton"];
   shuffleArray(nameList);
-  let catThing = null;
-  let catIndex = 0;
   if (props.userScores && props.userId) {
     for (var i = 0; i <= props.userScores.arms / 20; i++) {
       catTypes.push(1);
@@ -76,8 +77,8 @@ const CenterStage = (props) => {
 
     catThing = (
       <div class="random-images">
-        {catList.map((aCat) => (
-          <Cat catType={aCat.catType} name={aCat.name} yCord={aCat.yCord} />
+        {catList.map((aCat, index) => (
+          <Cat catType={aCat.catType} name={aCat.name} yCord={aCat.yCord} index={index} />
         ))}
       </div>
     );
