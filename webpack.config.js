@@ -48,7 +48,7 @@ module.exports = {
           },
           {
             loader: "postcss-loader",
-          }
+          },
         ],
       },
       {
@@ -56,6 +56,14 @@ module.exports = {
         use: [
           {
             loader: "url-loader",
+          },
+        ],
+      },
+      {
+        test: /\.(mp3|wav)$/,
+        use: [
+          {
+            loader: "file-loader",
           },
         ],
       },

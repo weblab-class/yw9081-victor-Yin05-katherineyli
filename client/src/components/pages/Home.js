@@ -6,6 +6,14 @@ import CenterStage from "../modules/CenterStage.js";
 import "./Home.css";
 
 function Home(props) {
+  const handleToggle = () => {
+    const audioElements = document.querySelectorAll("audio");
+
+    // Mute each audio element
+    audioElements.forEach((audio) => {
+      audio.muted = !audio.muted;
+    });
+  };
   return (
     <div>
       <div className="flex justify-center items-center pb-5">
@@ -19,6 +27,13 @@ function Home(props) {
       </div>
       <div className="flex flex-grow justify-center items-center">
         <CenterStage userId={props.userId} userScores={props.userScores} />
+      </div>
+      <div class="switchContainer">
+        <p style={{ color: "white" }}>meow?</p>
+        <label class="switch">
+          <input type="checkbox" onClick={handleToggle} />
+          <span class="slider round"></span>
+        </label>
       </div>
       {/* <div className = " flex justify-center items-center">
         <h4>log an exercise to get started</h4>
