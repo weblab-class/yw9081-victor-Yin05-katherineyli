@@ -9,7 +9,9 @@ import Popup from "../../../../node_modules/reactjs-popup";
 import Stats from "./Stats.js";
 import bird from "./images/bird.gif";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import PopupPage from "./PopupPage.js";
+import PopupPage from "./PopupPage.js"
+import Bird from "../modules/Bird.js"
+
 
 const CenterStage = (props) => {
   const [randomPositions, setRandomPositions] = useState(Array(100).fill({ x: 0, y: 0 }));
@@ -96,7 +98,10 @@ const CenterStage = (props) => {
         <Popup
           trigger={
             // <FaRegQuestionCircle className="w-10 h-10 mr-4 text-white hover:text-gray-200" />
-            <img src={bird} className="bird" />
+            // <img src = {bird} className = "bird" />
+            <div><Bird /> </div>
+
+
           }
           modal
           nested
